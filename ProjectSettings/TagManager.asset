@@ -5,7 +5,15 @@ TagManager:
   serializedVersion: 2
   tags:
   - Fire
-  - ToolAmmo
+  - ToolAmmoPreview
+  - Burger
+  - Can
+  - Taco
+  - Computer
+  - PlasticBottle
+  - Battery
+  - Avocado
+  - Chip
   layers:
   - Default
   - TransparentFX

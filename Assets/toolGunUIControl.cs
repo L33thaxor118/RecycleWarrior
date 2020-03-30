@@ -5,29 +5,35 @@ using UnityEngine.UI;
 
 public class toolGunUIControl : MonoBehaviour
 {
-    private List<GameObject> miniboxes;
-    private int activeIdx;
+    private List<GameObject> ammoPreviews;
+    public int activeIdx;
+    private Text ammoCounter;
+
+    private Inventory inventory;
     // Start is called before the first frame update
 
-    private void setFullOpacity(Image img) {
-        Color tempColor = img.color;
-        tempColor.a = 1f;
-        img.color = tempColor;
-    }
+    // private void setFullOpacity(Image img) {
+    //     Color tempColor = img.color;
+    //     tempColor.a = 1f;
+    //     img.color = tempColor;
+    // }
 
-    private void setHalfOpacity(Image img) {
-        Color tempColor = img.color;
-        tempColor.a = 0.5f;
-        img.color = tempColor;
-    }
+    // private void setHalfOpacity(Image img) {
+    //     Color tempColor = img.color;
+    //     tempColor.a = 0.5f;
+    //     img.color = tempColor;
+    // }
     void Start()
     {
         activeIdx = 0;
-        miniboxes = new List<GameObject>(GameObject.FindGameObjectsWithTag("ToolAmmo"));
-        foreach(GameObject panel in miniboxes) {
-            setHalfOpacity(panel.GetComponent<Image>());
+        ammoPreviews = new List<GameObject>(GameObject.FindGameObjectsWithTag("ToolAmmoPreview"));
+        ammoCounter = GameObject.Find("AmmoCounter").GetComponent<Text>();
+        inventory = GameObject.Find("Player").GetComponent<Inventory>();
+        foreach(GameObject panel in ammoPreviews) {
+            panel.SetActive(false);
         }
-        setFullOpacity(miniboxes[activeIdx].GetComponent<Image>());
+        ammoPreviews[activeIdx].SetActive(true);
+        ammoCounter.text = "0";
     }
 
     // Update is called once per frame
@@ -35,13 +41,13 @@ public class toolGunUIControl : MonoBehaviour
     {
         int oldIdx = activeIdx;
         if (Input.GetKeyDown(KeyCode.U)) {
-            activeIdx = (activeIdx + 1) % miniboxes.Count;
+            activeIdx = (activeIdx + 1) % ammoPreviews.Count;
         } else if (Input.GetKeyDown(KeyCode.J)) {
-            activeIdx = (Mathf.Abs(activeIdx - 1)) % miniboxes.Count;
+            activeIdx = (Mathf.Abs(activeIdx - 1)) % ammoPreviews.Count;
 
         }
-        setHalfOpacity(miniboxes[oldIdx].GetComponent<Image>());
-        setFullOpacity(miniboxes[activeIdx].GetComponent<Image>());
-
+        ammoPreviews[oldIdx].SetActive(false);
+        ammoPreviews[activeIdx].SetActive(true);
+        ammoCounter.text = inventory.trashAmmo[activeIdx].ToString();
     }
 }
