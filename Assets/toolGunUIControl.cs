@@ -9,6 +9,8 @@ public class toolGunUIControl : MonoBehaviour
     public int activeIdx;
     private Text ammoCounter;
 
+    private WeaponSwitch selectedWeapon;
+
     private Inventory inventory;
     // Start is called before the first frame update
 
@@ -29,12 +31,15 @@ public class toolGunUIControl : MonoBehaviour
         ammoPreviews = new List<GameObject>(GameObject.FindGameObjectsWithTag("ToolAmmoPreview"));
         ammoCounter = GameObject.Find("AmmoCounter").GetComponent<Text>();
         inventory = GameObject.Find("Player").GetComponent<Inventory>();
+        selectedWeapon = GameObject.Find("Player").GetComponent<WeaponSwitch>();
         foreach(GameObject panel in ammoPreviews) {
             panel.SetActive(false);
         }
         ammoPreviews[activeIdx].SetActive(true);
         ammoCounter.text = "0";
     }
+
+
 
     // Update is called once per frame
     void Update()
@@ -43,11 +48,16 @@ public class toolGunUIControl : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.U)) {
             activeIdx = (activeIdx + 1) % ammoPreviews.Count;
         } else if (Input.GetKeyDown(KeyCode.J)) {
-            activeIdx = (Mathf.Abs(activeIdx - 1)) % ammoPreviews.Count;
-
+            if (activeIdx == 0) activeIdx = ammoPreviews.Count;
+            activeIdx = (activeIdx - 1) % ammoPreviews.Count;
         }
         ammoPreviews[oldIdx].SetActive(false);
         ammoPreviews[activeIdx].SetActive(true);
-        ammoCounter.text = inventory.trashAmmo[activeIdx].ToString();
+        if (selectedWeapon.currentIdx != 0) {
+            ammoCounter.text = "";
+            ammoPreviews[activeIdx].SetActive((false));
+        } else {
+            ammoCounter.text = inventory.trashAmmo[activeIdx].ToString();
+        }
     }
 }

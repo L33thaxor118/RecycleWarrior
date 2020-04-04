@@ -4,14 +4,20 @@ using UnityEngine;
 
 public class WeaponSwitch : MonoBehaviour
 {
-    private int currentIdx;
+    public int currentIdx;
     private List<GameObject> weapons;
     // Start is called before the first frame update
     void Start()
     {
         weapons = new List<GameObject>();
-        weapons.Add(GameObject.Find("Assault"));
         weapons.Add(GameObject.Find("Tool"));
+        weapons.Add(GameObject.Find("Pistol1"));
+        weapons.Add(GameObject.Find("Pistol2"));
+        weapons.Add(GameObject.Find("Rifle1"));
+        weapons.Add(GameObject.Find("Rifle2"));
+        weapons.Add(GameObject.Find("Sniper1"));
+        weapons.Add(GameObject.Find("Sniper2"));
+
         currentIdx = 0;
         foreach (GameObject weapon in weapons) {
             weapon.SetActive(false);
@@ -28,7 +34,8 @@ public class WeaponSwitch : MonoBehaviour
             currentIdx = (currentIdx + 1) % weapons.Count;
         }
         else if (Input.GetKeyDown(KeyCode.K)) {
-            currentIdx = (Mathf.Abs(currentIdx - 1)) % weapons.Count;
+            if (currentIdx == 0) currentIdx = weapons.Count;
+            currentIdx = (currentIdx - 1) % weapons.Count;
 
         }
         weapons[oldIdx].SetActive(false);

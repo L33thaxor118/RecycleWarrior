@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 7488626395235196213}
   - component: {fileID: 7488626395235196212}
   - component: {fileID: 7488626395235196219}
-  - component: {fileID: 7488626395235196218}
   - component: {fileID: 7488626395235196217}
+  - component: {fileID: 147070603326883645}
   m_Layer: 0
   m_Name: Taco
   m_TagString: Taco
@@ -98,20 +98,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!136 &7488626395235196218
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7488626395235196216}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.0886911
-  m_Height: 0.0306401
-  m_Direction: 1
-  m_Center: {x: 0, y: 0.0000000060535967, z: 0}
 --- !u!114 &7488626395235196217
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -125,3 +111,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   test: 
+--- !u!65 &147070603326883645
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7488626395235196216}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.1773822, y: 0.0306401, z: 0.09113876}
+  m_Center: {x: 0, y: 0.0000000060535967, z: 0}

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
-    public int[] trashAmmo;
+    public int[] trashAmmo = {0,0,0,0,0,0,0,0};
 
     // Start is called before the first frame update
     void Start()
