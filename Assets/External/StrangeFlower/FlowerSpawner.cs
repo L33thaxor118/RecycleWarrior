@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Spawner : MonoBehaviour
+public class FlowerSpawner : MonoBehaviour
 {
     public Transform spawnPos;
     public GameObject spawnee;
