@@ -1041,7 +1041,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 0.5
+  m_Speed: 3.5
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -1066,6 +1066,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 50
+  trashDrop1: {fileID: 252147803083873686, guid: e47c51b38c0044ad28824fe22a7d79d0,
+    type: 3}
+  trashDrop2: {fileID: 9101919596703818089, guid: 63fd6ab5dc20b4436b8e29e3546f50d5,
+    type: 3}
+  dropLocation: {fileID: 9196638861968184152}
 --- !u!1 &5607341962180261004
 GameObject:
   m_ObjectHideFlags: 0

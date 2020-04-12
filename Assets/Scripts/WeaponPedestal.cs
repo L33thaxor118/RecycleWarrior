@@ -38,7 +38,7 @@ public class WeaponPedestal : MonoBehaviour
     void Update()
     {
         if (redBinCollector.itemCount == 3) {
-            rifle1.transform.position = Vector3.Lerp (rifle1.transform.position, new Vector3 (rifle1.transform.position.x, 1.2f, rifle1.transform.position.z), Time.deltaTime * 0.7f);
+            pistol2.transform.position = Vector3.Lerp (pistol2.transform.position, new Vector3 (pistol2.transform.position.x, 1.2f, pistol2.transform.position.z), Time.deltaTime * 0.7f);
         }
     }
 }

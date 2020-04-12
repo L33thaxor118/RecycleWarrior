@@ -14,6 +14,8 @@ public class TrashSpawner : MonoBehaviour
     public GameObject Trash7;
     public GameObject Trash8;
 
+    public WeaponSwitch weaponSwitch;
+
     public Inventory inventory;
     private toolGunUIControl control;
     private List<GameObject> trashes;
@@ -37,7 +39,7 @@ public class TrashSpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0) && inventory.trashAmmo[control.activeIdx] > 0) {
+        if (Input.GetMouseButtonDown(0) && inventory.trashAmmo[control.activeIdx] > 0 && weaponSwitch.currentIdx == 0) {
             GameObject instance = Instantiate(trashes[control.activeIdx], spawnPosition.position, spawnPosition.rotation);
             Rigidbody body = instance.GetComponent<Rigidbody>();
             body.AddRelativeForce(new Vector3(1,1,1000));
