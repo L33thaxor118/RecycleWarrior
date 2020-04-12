@@ -23,7 +23,6 @@ public class Gun : MonoBehaviour {
 	}
 
 	void Update() {
-
 		if (Input.GetButton("Fire1") && Time.time >= nextTime)
 		{
 			nextTime = Time.time + 1f/fireRate;
@@ -38,6 +37,7 @@ public class Gun : MonoBehaviour {
 
 		if	(Physics.Raycast(userCamera.transform.position, userCamera.transform.forward, out hit, range))
 		{
+			Debug.DrawRay(userCamera.transform.position, userCamera.transform.forward * range, Color.red, 10);
 			Debug.Log(hit.transform.name);
 			Target target = hit.transform.GetComponent<Target>();
 			if (target != null) {
