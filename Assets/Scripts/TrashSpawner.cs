@@ -14,7 +14,7 @@ public class TrashSpawner : MonoBehaviour
     public GameObject Trash7;
     public GameObject Trash8;
 
-    private Inventory inventory;
+    public Inventory inventory;
     private toolGunUIControl control;
     private List<GameObject> trashes;
 
@@ -22,7 +22,6 @@ public class TrashSpawner : MonoBehaviour
     void Start()
     {
         Debug.Log("started script");
-        inventory = GameObject.Find("Player").GetComponent<Inventory>();
         control = GameObject.Find("Player").GetComponent<toolGunUIControl>();
         trashes = new List<GameObject>();
         trashes.Add(Trash1);

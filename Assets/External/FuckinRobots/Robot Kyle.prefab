@@ -944,6 +944,7 @@ GameObject:
   - component: {fileID: 4241179870669178131}
   - component: {fileID: 4241179870669178135}
   - component: {fileID: 4241179870669178132}
+  - component: {fileID: 7393235399144058329}
   m_Layer: 0
   m_Name: Robot Kyle
   m_TagString: Robot Kyle
@@ -1040,7 +1041,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 3.5
+  m_Speed: 1
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -1052,6 +1053,19 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &7393235399144058329
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5330678152047649099}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18b10e535b35f432c9d5254a8aa4a718, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 50
 --- !u!1 &5607341962180261004
 GameObject:
   m_ObjectHideFlags: 0

@@ -11,7 +11,7 @@ public class toolGunUIControl : MonoBehaviour
 
     private WeaponSwitch selectedWeapon;
 
-    private Inventory inventory;
+    public Inventory inventory;
     // Start is called before the first frame update
 
     // private void setFullOpacity(Image img) {
@@ -30,7 +30,6 @@ public class toolGunUIControl : MonoBehaviour
         activeIdx = 0;
         ammoPreviews = new List<GameObject>(GameObject.FindGameObjectsWithTag("ToolAmmoPreview"));
         ammoCounter = GameObject.Find("AmmoCounter").GetComponent<Text>();
-        inventory = GameObject.Find("Player").GetComponent<Inventory>();
         selectedWeapon = GameObject.Find("Player").GetComponent<WeaponSwitch>();
         foreach(GameObject panel in ammoPreviews) {
             panel.SetActive(false);

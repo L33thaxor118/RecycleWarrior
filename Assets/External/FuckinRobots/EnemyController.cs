@@ -31,15 +31,15 @@ public class EnemyController : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-      Debug.Log("collided!");
+      Debug.Log("robot collided! collision");
       if(collision.gameObject.CompareTag("Tree") || collision.gameObject.CompareTag("Player")){
         myAnimationController.SetBool("Hit",true);
       }
     }
 
-    private void OnTriggerEnter(GameObject collision)
+    private void OnTriggerEnter(Collider collision)
     {
-      Debug.Log("collided!");
+      Debug.Log("robot collided! trigger");
       if(collision.gameObject.CompareTag("Tree") || collision.gameObject.CompareTag("Player")){
         myAnimationController.SetBool("Hit",true);
       }
@@ -51,7 +51,7 @@ public class EnemyController : MonoBehaviour
       }
     }
 
-    private void OnTriggerExit(GameObject collision)
+    private void OnTriggerExit(Collider collision)
     {
       Debug.Log("collided!");
       if(collision.gameObject.CompareTag("Tree") || collision.gameObject.CompareTag("Player")){

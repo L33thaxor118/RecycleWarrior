@@ -19,7 +19,7 @@ public class DestroyTrash : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.name == "Player") {
+        if (collision.gameObject.name == "PlayerRigidBody") {
             Destroy(this.gameObject);
         }
     }

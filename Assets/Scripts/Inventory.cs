@@ -18,26 +18,33 @@ public class Inventory : MonoBehaviour
         
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider collision)
     {
+        Debug.Log("collision on trigger!");
         //THESE NEED TO BE IN SAME ORDER AS UI PREVIEWS
         if (collision.gameObject.tag == "Taco") {
-            DestroyTrash itemScript = collision.gameObject.GetComponent<DestroyTrash>();
-            Debug.Log("collided with" + itemScript.test);
+            Destroy(collision.gameObject);
             trashAmmo[0]++;
         } else if (collision.gameObject.tag == "Computer") {
+            Destroy(collision.gameObject);
             trashAmmo[1]++;
         } else if (collision.gameObject.tag == "Chip") {
+            Destroy(collision.gameObject);
             trashAmmo[2]++;
         } else if (collision.gameObject.tag == "Can") {
+            Destroy(collision.gameObject);
             trashAmmo[3]++;
         } else if (collision.gameObject.tag == "PlasticBottle") {
+            Destroy(collision.gameObject);
             trashAmmo[4]++;
         } else if (collision.gameObject.tag == "Burger") {
+            Destroy(collision.gameObject);
             trashAmmo[5]++;
         } else if (collision.gameObject.tag == "Battery") {
+            Destroy(collision.gameObject);
             trashAmmo[6]++;
         } else if (collision.gameObject.tag == "Avocado") {
+            Destroy(collision.gameObject);
             trashAmmo[7]++;
         }
     }

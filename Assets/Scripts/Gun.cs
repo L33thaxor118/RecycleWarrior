@@ -11,6 +11,16 @@ public class Gun : MonoBehaviour {
 	public Camera userCamera;  // change this depending on the setup
 	private float nextTime = 0f; // inital value for checking rate
 
+	public ParticleSystem muzzleEffect;
+	public ParticleSystem HitEffect;
+	public Transform gunTransform;
+
+	public AudioSource fireSound;
+
+	private float recoil = 0f;
+
+	void Start() {
+	}
 
 	void Update() {
 
@@ -23,7 +33,9 @@ public class Gun : MonoBehaviour {
 
 	void Shoot() {
 		RaycastHit hit;
-		
+		fireSound.Play();
+		muzzleEffect.Play();
+
 		if	(Physics.Raycast(userCamera.transform.position, userCamera.transform.forward, out hit, range))
 		{
 			Debug.Log(hit.transform.name);
