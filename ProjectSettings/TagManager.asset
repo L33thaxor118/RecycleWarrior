@@ -16,6 +16,14 @@ TagManager:
   - Chip
   - Robot Kyle
   - Tree
+  - MediumAmmo
+  - LightAmmo
+  - HeavyAmmo
+  - RifleUpgrade1
+  - RifleUpgrade2
+  - PistolUpgrade2
+  - SniperUpgrade1
+  - SniperUpgrade2
   layers:
   - Default
   - TransparentFX

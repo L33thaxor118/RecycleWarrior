@@ -5,9 +5,9 @@ using UnityEngine;
 public class Inventory : MonoBehaviour
 {
     public int[] trashAmmo = {0,0,0,0,0,0,0,0};
-    public int pistolAmmo = 0;
-    public int rifleAmmo = 0;
-    public int sniperAmmo = 0;
+    public int lightAmmo = 0;
+    public int mediumAmmo = 0;
+    public int heavyAmmo = 0;
 
 
     // Start is called before the first frame update

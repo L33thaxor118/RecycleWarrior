@@ -9,11 +9,13 @@ public class Target : MonoBehaviour {
 	public GameObject trashDrop2;
 
 	public Transform dropLocation;
+
+	public bool isDead;
 	
 
 	public void takeDamage(float damageAmount) {
 		health -= damageAmount; // damage occuring on object
-		if (health <0f)
+		if (health <0f && !isDead)
 		{
 			Death();
 		}
@@ -23,7 +25,7 @@ public class Target : MonoBehaviour {
 		{
 			Instantiate(trashDrop1, dropLocation.position, dropLocation.rotation);
 			Instantiate(trashDrop1, dropLocation.position, dropLocation.rotation);
-			Destroy(gameObject); // if the object health reaches 0, destroy the object 
+			isDead = true;
 		}
 	}
 }

@@ -1031,6 +1031,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myAnimationController: {fileID: 1237088638697618978}
   lookRadius: 5
+  target: {fileID: 7393235399144058329}
 --- !u!195 &4241179870669178132
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -1071,6 +1072,7 @@ MonoBehaviour:
   trashDrop2: {fileID: 9101919596703818089, guid: 63fd6ab5dc20b4436b8e29e3546f50d5,
     type: 3}
   dropLocation: {fileID: 9196638861968184152}
+  isDead: 0
 --- !u!1 &5607341962180261004
 GameObject:
   m_ObjectHideFlags: 0

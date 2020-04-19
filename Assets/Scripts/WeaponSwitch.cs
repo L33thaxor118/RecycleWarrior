@@ -20,18 +20,22 @@ public class WeaponSwitch : MonoBehaviour
     void Start()
     {
         weapons = new List<GameObject>();
+        Tool.SetActive(false);
+        Pistol1.SetActive(false);
+        Pistol2.SetActive(false);
+        Rifle1.SetActive(false);
+        Rifle2.SetActive(false);
+        Sniper1.SetActive(false);
+        Sniper2.SetActive(false);
         weapons.Add(Tool);
         weapons.Add(Pistol1);
-        weapons.Add(Pistol2);
-        weapons.Add(Rifle1);
-        weapons.Add(Rifle2);
-        weapons.Add(Sniper1);
-        weapons.Add(Sniper2);
+        // weapons.Add(Pistol2);
+        // weapons.Add(Rifle1);
+        // weapons.Add(Rifle2);
+        // weapons.Add(Sniper1);
+        // weapons.Add(Sniper2);
 
         currentIdx = 0;
-        foreach (GameObject weapon in weapons) {
-            weapon.SetActive(false);
-        }
         weapons[currentIdx].SetActive(true);
     }
 
@@ -52,4 +56,13 @@ public class WeaponSwitch : MonoBehaviour
             weapons[currentIdx].SetActive(true);
         }
     }
+
+    public void addPistol2() {
+        weapons.Add(Pistol2);
+    }
+
+    public void addRifle1() {
+        weapons.Add(Rifle1);
+    }
+
 }

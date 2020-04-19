@@ -9,15 +9,35 @@ public class EnemyController : MonoBehaviour
     public float lookRadius = 5f;
     Transform target1;
     Transform target2;
-    NavMeshAgent agent;
+
+    private int deadTime = 0;
+
+    public Collider mainCollider;
+    public Rigidbody mainRigidBody;
+
+    public Target target;
+
+    public NavMeshAgent agent;
 
     void Start(){
       target1 = GameObject.FindGameObjectWithTag("Player").transform;
       target2 = GameObject.FindGameObjectWithTag("Tree").transform;
-      agent = GetComponent<NavMeshAgent>();
     }
 
     void Update(){
+
+      if (target.isDead) {
+        mainCollider.enabled = false;
+        agent.enabled = false;
+        mainRigidBody.detectCollisions = false;
+        deadTime++;
+        if (deadTime > 25) {
+          myAnimationController.enabled = false;
+        }
+        return;
+      }
+
+
       float distance = Vector3.Distance(target1.position, transform.position);
       if(distance <= lookRadius)
       {

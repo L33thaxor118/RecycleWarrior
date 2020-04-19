@@ -7,8 +7,14 @@ public class BinCollector : MonoBehaviour
 {
     private BoxCollider dropBox;
     private List<string> redAcceptTags = new List<string>(){"Can"};
-    private List<string> blueAcceptTags = new List<string>(){"Computer", "Chip", "Battery"};
+    private List<string> redSpecialTags = new List<string>(){""};
+
+    private List<string> blueAcceptTags = new List<string>(){ "Chip", "Battery"};
+    private List<string> blueSpecialTags = new List<string>(){"Computer"};
+
     private List<string> yellowAcceptTags = new List<string>(){"PlasticBottle"};
+    private List<string> yellowSpecialTags = new List<string>(){""};
+
 
     private ParticleSystem fire;
     private ParticleSystem trashbinYellowFX;
@@ -16,6 +22,8 @@ public class BinCollector : MonoBehaviour
     private ParticleSystem trashbinBlueFX;
 
     public int itemCount;
+
+    public int specialItemCount;
 
 
 
@@ -59,7 +67,10 @@ public class BinCollector : MonoBehaviour
                 fire.Play();
             }
         } else if (gameObject.name == "TrashbinBlue") { //electronics
-            if (blueAcceptTags.Contains(other.gameObject.tag)) {
+            if (blueSpecialTags.Contains(other.gameObject.tag)) {
+                specialItemCount++;
+            }
+            else if (blueAcceptTags.Contains(other.gameObject.tag)) {
                 trashbinBlueFX.Play();
                 itemCount++;
             } else {
