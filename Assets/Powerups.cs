@@ -15,6 +15,8 @@ public class Powerups : MonoBehaviour
     private float originalSpeed;
     private float originalJump;
 
+    public AudioSource pickupFX;
+
     public PlayerMovement playerMovement;
 
 
@@ -49,11 +51,14 @@ public class Powerups : MonoBehaviour
     {
         if (collision.gameObject.tag == "ApplePowerup") {
             Destroy(collision.gameObject);  
+            pickupFX.Play();
             //regenerate health
         } else if (collision.gameObject.tag == "BananaPowerup") {
             Destroy(collision.gameObject);
+            pickupFX.Play();
         } else if (collision.gameObject.tag == "StrawberryPowerup") {
             Destroy(collision.gameObject);            
+            pickupFX.Play();
             strawberryTimeRemaining += powerupTime;
             playerMovement.doubleJump = true;
             playerMovement.speed = originalSpeed + speedBoost;
