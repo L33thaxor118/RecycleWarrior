@@ -23,7 +23,7 @@ RenderSettings:
   m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
-  m_AmbientIntensity: 1
+  m_AmbientIntensity: 1.14
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
   m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
@@ -2790,6 +2790,7 @@ MonoBehaviour:
   controller: {fileID: 983952732}
   speed: 12
   jumpHeight: 2
+  doubleJump: 0
   gravity: -9.81
   groundCheck: {fileID: 1263293829}
   groundDistance: 0.4
@@ -3874,6 +3875,7 @@ GameObject:
   - component: {fileID: 1153309270}
   - component: {fileID: 1153309271}
   - component: {fileID: 1153309269}
+  - component: {fileID: 1153309272}
   m_Layer: 0
   m_Name: PlayerTrigger
   m_TagString: Player
@@ -3941,6 +3943,22 @@ MonoBehaviour:
   lightAmmo: 0
   mediumAmmo: 0
   heavyAmmo: 0
+--- !u!114 &1153309272
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1153309267}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2fd5050473094efc8a62f3e4dc202cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  powerupTime: 15
+  speedBoost: 3
+  jumpBoost: 3
+  playerMovement: {fileID: 983952734}
 --- !u!1001 &1155301454
 PrefabInstance:
   m_ObjectHideFlags: 0

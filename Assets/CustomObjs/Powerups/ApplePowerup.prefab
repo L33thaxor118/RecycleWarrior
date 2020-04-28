@@ -27,6 +27,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ApplePowerup
       objectReference: {fileID: 0}
+    - target: {fileID: 1000013678658166, guid: 8fa35cdad352cfa4297d3be64705ecf1, type: 3}
+      propertyPath: m_TagString
+      value: ApplePowerup
+      objectReference: {fileID: 0}
     - target: {fileID: 4000011667685464, guid: 8fa35cdad352cfa4297d3be64705ecf1, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

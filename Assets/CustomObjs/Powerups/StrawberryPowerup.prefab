@@ -27,6 +27,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: StrawberryPowerup
       objectReference: {fileID: 0}
+    - target: {fileID: 1000011961567032, guid: 7dff911492482a2459041d0a1fb156ef, type: 3}
+      propertyPath: m_TagString
+      value: StrawberryPowerup
+      objectReference: {fileID: 0}
     - target: {fileID: 4000010048098924, guid: 7dff911492482a2459041d0a1fb156ef, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

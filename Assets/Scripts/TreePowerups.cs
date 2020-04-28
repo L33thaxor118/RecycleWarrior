@@ -30,13 +30,13 @@ public class TreePowerups : MonoBehaviour
         if (timeLeft <= 0) {
             timeLeft = spawnInterval;
             float val = Random.value * 100f;
-            if (val >= 0f && val <= 25f) {
+            if (val >= 0f && val <= 20f) {
                 Instantiate(Speed, SpawnLocation);
-            } else if (val > 25f && val <= 50f) {
+            } else if (val > 20f && val <= 40f) {
                 Instantiate(HealthRestore, SpawnLocation);
-            } else if (val > 50f && val <= 75f) {
+            } else if (val > 40f && val <= 60f) {
                 Instantiate(Damage, SpawnLocation);
-            } else if (val > 75f && val <= 90f) {
+            } else if (val > 60f && val <= 80f) {
                 Instantiate(Bomb, SpawnLocation);
             } else {
                 Instantiate(Ent, SpawnLocation);

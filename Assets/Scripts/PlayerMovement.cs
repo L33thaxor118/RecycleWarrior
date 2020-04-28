@@ -9,6 +9,8 @@ public class PlayerMovement : MonoBehaviour
 
     public float jumpHeight = 3f;
 
+    public bool doubleJump = false;
+
     Vector3 velocity;
     public float gravity = -9.81f;
 
@@ -18,6 +20,8 @@ public class PlayerMovement : MonoBehaviour
     public LayerMask groundMask;
 
     bool isGrounded;
+
+    int numJumps = 0;
 
 
     // Start is called before the first frame update
@@ -34,13 +38,21 @@ public class PlayerMovement : MonoBehaviour
 
         if (isGrounded && velocity.y < 0) {
             velocity.y = -2f;
+            numJumps = 0;
         }
 
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
 
-        if (Input.GetButtonDown("Jump")) {
-            velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
+        if (doubleJump) {
+            if (Input.GetButtonDown("Jump") && numJumps < 2) {
+                velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
+                numJumps++;
+            }
+        } else {
+            if (Input.GetButtonDown("Jump") && isGrounded) {
+                velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
+            }
         }
 
         Vector3 move = transform.right * x + transform.forward * z;

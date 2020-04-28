@@ -24,6 +24,11 @@ TagManager:
   - PistolUpgrade2
   - SniperUpgrade1
   - SniperUpgrade2
+  - ApplePowerup
+  - BananaPowerup
+  - KiwiPowerup
+  - PearPowerup
+  - StrawberryPowerup
   layers:
   - Default
   - TransparentFX

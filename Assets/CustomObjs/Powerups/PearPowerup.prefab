@@ -39,6 +39,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PearPowerup
       objectReference: {fileID: 0}
+    - target: {fileID: 1000013251634520, guid: 18338b7d507b8f74eb2b74cd579a0a78, type: 3}
+      propertyPath: m_TagString
+      value: PearPowerup
+      objectReference: {fileID: 0}
     - target: {fileID: 4000013089370440, guid: 18338b7d507b8f74eb2b74cd579a0a78, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

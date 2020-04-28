@@ -27,6 +27,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BananaPowerup
       objectReference: {fileID: 0}
+    - target: {fileID: 1000013571059214, guid: 79b496967591f8244b45eda1d75bd519, type: 3}
+      propertyPath: m_TagString
+      value: BananaPowerup
+      objectReference: {fileID: 0}
     - target: {fileID: 4000011058139782, guid: 79b496967591f8244b45eda1d75bd519, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

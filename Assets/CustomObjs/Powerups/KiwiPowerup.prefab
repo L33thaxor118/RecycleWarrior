@@ -28,6 +28,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56ba6d8970a6b46718634cbcbfb47168, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ent: {fileID: 0}
+  spawnPos: {fileID: 0}
 --- !u!1001 &1161565899337163484
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -37,6 +39,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1000013319535190, guid: 6cd3fed00fe5f5c47984322cca0abeeb, type: 3}
       propertyPath: m_Name
+      value: KiwiPowerup
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000013319535190, guid: 6cd3fed00fe5f5c47984322cca0abeeb, type: 3}
+      propertyPath: m_TagString
       value: KiwiPowerup
       objectReference: {fileID: 0}
     - target: {fileID: 4000012737768072, guid: 6cd3fed00fe5f5c47984322cca0abeeb, type: 3}
