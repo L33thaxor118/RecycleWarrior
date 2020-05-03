@@ -14,6 +14,10 @@ public class TrashSpawner : MonoBehaviour
     public GameObject Trash7;
     public GameObject Trash8;
 
+    public GameObject Trash9;
+    public GameObject Trash10;
+
+
     public WeaponSwitch weaponSwitch;
 
     public Inventory inventory;
@@ -34,6 +38,9 @@ public class TrashSpawner : MonoBehaviour
         trashes.Add(Trash6);
         trashes.Add(Trash7);
         trashes.Add(Trash8);
+        trashes.Add(Trash9);
+        trashes.Add(Trash10);
+
     }
 
     // Update is called once per frame

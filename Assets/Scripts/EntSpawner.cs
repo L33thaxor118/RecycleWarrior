@@ -15,14 +15,12 @@ public class EntSpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float random1 = Random.Range(-2f, 2f);
-        float random2 = Random.Range(-2f, 2f);
-        if (Input.GetKeyDown(KeyCode.C))
-        {
-          Vector3 spawnPos = GameObject.FindGameObjectWithTag("Tree").transform.position;
-          spawnPos.x += random1;
-          spawnPos.z += random2;
-          Instantiate(spawnee, spawnPos, Quaternion.identity);
-        }
+
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+      Instantiate(spawnee, gameObject.transform.position, gameObject.transform.rotation);
+      Destroy(gameObject);
     }
 }
