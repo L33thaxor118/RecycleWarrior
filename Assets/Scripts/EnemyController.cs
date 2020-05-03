@@ -22,7 +22,15 @@ public class EnemyController : MonoBehaviour
 
     public NavMeshAgent agent;
 
+    public float hitDelay = 1f;
+    private float timeTillNextHit;
+
+    private bool isHitting = false;
+
+    private GameObject collision;
+
     void Start(){
+      timeTillNextHit = hitDelay;
       target1 = GameObject.FindGameObjectWithTag("Player").transform;
       target2 = GameObject.FindGameObjectWithTag("Tree").transform;
       if(GameObject.FindGameObjectWithTag("Ent") != null){
@@ -31,6 +39,16 @@ public class EnemyController : MonoBehaviour
     }
 
     void Update(){
+      if (timeTillNextHit > 0) {
+        timeTillNextHit -= Time.deltaTime;
+      }
+      if (isHitting) {
+        if (collision.gameObject.CompareTag("Player") && timeTillNextHit <= 0) {
+          collision.gameObject.GetComponent<PlayerHealth>().health -= 10;
+          collision.gameObject.GetComponents<AudioSource>()[2].Play();
+          timeTillNextHit = hitDelay;
+        }
+      }
 
       if (target.isDead) {
         mainCollider.enabled = false;
@@ -73,45 +91,55 @@ public class EnemyController : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-      Debug.Log("robot collided! collision");
       if(collision.gameObject.CompareTag("Tree") ||
          collision.gameObject.CompareTag("Player") ||
          collision.gameObject.CompareTag("Ent"))
       {
+        this.collision = collision.gameObject;
+        Debug.Log("robot entered collision");
         myAnimationController.SetBool("Hit",true);
+        isHitting = true;
       }
     }
 
     private void OnTriggerEnter(Collider collision)
     {
-      Debug.Log("robot collided! trigger");
       if(collision.gameObject.CompareTag("Tree") ||
          collision.gameObject.CompareTag("Player") ||
          collision.gameObject.CompareTag("Ent"))
       {
+        Debug.Log("robot entered trigger");
         myAnimationController.SetBool("Hit",true);
+        this.collision = collision.gameObject;
+        isHitting = true;
       }
     }
 
     private void OnCollisionExit(Collision collision)
     {
+      Debug.Log("robot exited collision");
       if(collision.gameObject.CompareTag("Tree") ||
          collision.gameObject.CompareTag("Player") ||
          collision.gameObject.CompareTag("Ent"))
       {
-        myAnimationController.SetBool("Hit",false);
+        stopHitting();
       }
     }
 
     private void OnTriggerExit(Collider collision)
     {
-      Debug.Log("collided!");
+      Debug.Log("robot exited trigger");
       if(collision.gameObject.CompareTag("Tree") ||
          collision.gameObject.CompareTag("Player") ||
          collision.gameObject.CompareTag("Ent"))
       {
-        myAnimationController.SetBool("Hit",false);
+        stopHitting();
       }
+    }
+
+    void stopHitting() {
+      myAnimationController.SetBool("Hit",false);
+      isHitting = false;
     }
 
     void OnDrawGizmosSelected()
