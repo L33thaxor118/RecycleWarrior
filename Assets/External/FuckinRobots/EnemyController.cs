@@ -9,6 +9,9 @@ public class EnemyController : MonoBehaviour
     public float lookRadius = 5f;
     Transform target1;
     Transform target2;
+    Transform target3;
+
+    public float distanceEnt = 200f;
 
     private int deadTime = 0;
 
@@ -22,6 +25,9 @@ public class EnemyController : MonoBehaviour
     void Start(){
       target1 = GameObject.FindGameObjectWithTag("Player").transform;
       target2 = GameObject.FindGameObjectWithTag("Tree").transform;
+      if(GameObject.FindGameObjectWithTag("Ent") != null){
+        target3 = GameObject.FindGameObjectWithTag("Ent").transform;
+      }
     }
 
     void Update(){
@@ -37,9 +43,25 @@ public class EnemyController : MonoBehaviour
         return;
       }
 
+      float distancePlayer = Vector3.Distance(target1.position, transform.position);
 
-      float distance = Vector3.Distance(target1.position, transform.position);
-      if(distance <= lookRadius)
+      if(GameObject.FindGameObjectWithTag("Ent") != null){
+        target3 = GameObject.FindGameObjectWithTag("Ent").transform;
+        distanceEnt = Vector3.Distance(target3.position, transform.position);
+      }
+      else{
+        distanceEnt = 200f;
+      }
+
+      float distanceTree = Vector3.Distance(target2.position, transform.position);
+
+      if(distanceEnt <= distancePlayer)
+      {
+        if(distanceEnt >= 0.5f){
+          agent.SetDestination(target3.position);
+        }
+      }
+      else if(distancePlayer <= lookRadius)
       {
         agent.SetDestination(target1.position);
       }
@@ -52,7 +74,10 @@ public class EnemyController : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
       Debug.Log("robot collided! collision");
-      if(collision.gameObject.CompareTag("Tree") || collision.gameObject.CompareTag("Player")){
+      if(collision.gameObject.CompareTag("Tree") ||
+         collision.gameObject.CompareTag("Player") ||
+         collision.gameObject.CompareTag("Ent"))
+      {
         myAnimationController.SetBool("Hit",true);
       }
     }
@@ -60,13 +85,20 @@ public class EnemyController : MonoBehaviour
     private void OnTriggerEnter(Collider collision)
     {
       Debug.Log("robot collided! trigger");
-      if(collision.gameObject.CompareTag("Tree") || collision.gameObject.CompareTag("Player")){
+      if(collision.gameObject.CompareTag("Tree") ||
+         collision.gameObject.CompareTag("Player") ||
+         collision.gameObject.CompareTag("Ent"))
+      {
         myAnimationController.SetBool("Hit",true);
       }
     }
+
     private void OnCollisionExit(Collision collision)
     {
-      if(collision.gameObject.CompareTag("Tree")|| collision.gameObject.CompareTag("Player")){
+      if(collision.gameObject.CompareTag("Tree") ||
+         collision.gameObject.CompareTag("Player") ||
+         collision.gameObject.CompareTag("Ent"))
+      {
         myAnimationController.SetBool("Hit",false);
       }
     }
@@ -74,7 +106,10 @@ public class EnemyController : MonoBehaviour
     private void OnTriggerExit(Collider collision)
     {
       Debug.Log("collided!");
-      if(collision.gameObject.CompareTag("Tree") || collision.gameObject.CompareTag("Player")){
+      if(collision.gameObject.CompareTag("Tree") ||
+         collision.gameObject.CompareTag("Player") ||
+         collision.gameObject.CompareTag("Ent"))
+      {
         myAnimationController.SetBool("Hit",false);
       }
     }
@@ -85,3 +120,6 @@ public class EnemyController : MonoBehaviour
       Gizmos.DrawWireSphere(transform.position, lookRadius);
     }
 }
+
+
+

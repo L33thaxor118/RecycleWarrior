@@ -784,10 +784,25 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4241179870669178131, guid: d3a6099431bc842fabea206f9f022da0,
+        type: 3}
+      propertyPath: m_Radius
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 4241179870669178132, guid: d3a6099431bc842fabea206f9f022da0,
         type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4241179870669178132, guid: d3a6099431bc842fabea206f9f022da0,
+        type: 3}
+      propertyPath: m_StoppingDistance
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4241179870669178132, guid: d3a6099431bc842fabea206f9f022da0,
+        type: 3}
+      propertyPath: m_AngularSpeed
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 4241179870669178135, guid: d3a6099431bc842fabea206f9f022da0,
         type: 3}

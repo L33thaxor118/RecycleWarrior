@@ -1031,7 +1031,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myAnimationController: {fileID: 1237088638697618978}
   lookRadius: 5
+  mainCollider: {fileID: 4241179870669178131}
+  mainRigidBody: {fileID: 4241179870669178130}
   target: {fileID: 7393235399144058329}
+  agent: {fileID: 4241179870669178132}
 --- !u!195 &4241179870669178132
 NavMeshAgent:
   m_ObjectHideFlags: 0
