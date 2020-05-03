@@ -9,6 +9,7 @@ public class EntController : MonoBehaviour
     // public float lookRadius = f;
     Transform target1;
     // Transform target2;
+    public float distanceEnt;
     NavMeshAgent agent;
 
     void Start(){
@@ -17,11 +18,20 @@ public class EntController : MonoBehaviour
     }
 
     void Update(){
+
+      if (Input.GetKeyDown(KeyCode.X))
+      {
+        myAnimationController.SetBool("Death",true);
+      }
+
       //Robot Kyle comes out
       if(GameObject.FindGameObjectWithTag("Robot Kyle") != null){
         target1 = GameObject.FindGameObjectWithTag("Robot Kyle").transform;
+        distanceEnt = Vector3.Distance(target1.position, transform.position);
         myAnimationController.SetBool("Go",true);
-        agent.SetDestination(target1.position);
+        if(distanceEnt >= 0.5f){
+          agent.SetDestination(target1.position);
+        }
       }
       else
       {

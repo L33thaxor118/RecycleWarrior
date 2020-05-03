@@ -16,6 +16,7 @@ TagManager:
   - Chip
   - Robot Kyle
   - Tree
+  - Ent
   layers:
   - Default
   - TransparentFX
