@@ -8,6 +8,8 @@ public class GrowScene : MonoBehaviour
     public GameObject tree;
     public GameObject grass;
     public TerrainManager terrainManager;
+    public GameObject seedsManager;
+
     private float radius = 15.0f;
     // Start is called before the first frame update
     void Start()
@@ -57,7 +59,6 @@ public class GrowScene : MonoBehaviour
              currentTime += Time.deltaTime;
              yield return null;
         } while (currentTime <= 5);
-        
         terrainManager.LevelUp();
          
 

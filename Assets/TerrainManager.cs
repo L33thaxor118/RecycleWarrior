@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class TerrainManager : MonoBehaviour
 {   
     private int level;
+    public Transform grassManager;
     // Start is called before the first frame update
     void Start()
     {  
@@ -37,6 +39,19 @@ public class TerrainManager : MonoBehaviour
         
         GameObject tnext = Terrain.CreateTerrainGameObject(next);
         tnext.transform.position = new Vector3(-50, 0 ,-50);
-       //Instantiate(tnext,new Vector3(-50,0,-50), Quaternion.identity);
+        var i = 0;
+        foreach (Transform item in grassManager)
+        {
+
+            GrowTree f = item.gameObject.GetComponent<GrowTree>();
+            i+= 1;
+            f.GrowUp();
+            if(i >= 3) {
+                break;
+            } 
+        }
+
+
+
     }
 }
