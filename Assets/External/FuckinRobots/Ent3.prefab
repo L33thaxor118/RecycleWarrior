@@ -1793,6 +1793,10 @@ MonoBehaviour:
   trashDrop1: {fileID: 0}
   trashDrop2: {fileID: 0}
   dropLocation: {fileID: 0}
+<<<<<<< HEAD
+=======
+  isDead: 0
+>>>>>>> 4c0d247e229fac5299665c76fff8e0fcf4c228de
 --- !u!195 &1544998783291495812
 NavMeshAgent:
   m_ObjectHideFlags: 0

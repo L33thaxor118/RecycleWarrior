@@ -9,6 +9,11 @@ public class PlayerMovement : MonoBehaviour
 
     public float jumpHeight = 3f;
 
+<<<<<<< HEAD
+=======
+    public bool doubleJump = false;
+
+>>>>>>> 4c0d247e229fac5299665c76fff8e0fcf4c228de
     Vector3 velocity;
     public float gravity = -9.81f;
 
@@ -19,6 +24,11 @@ public class PlayerMovement : MonoBehaviour
 
     bool isGrounded;
 
+<<<<<<< HEAD
+=======
+    int numJumps = 0;
+
+>>>>>>> 4c0d247e229fac5299665c76fff8e0fcf4c228de
 
     // Start is called before the first frame update
     void Start()
@@ -34,13 +44,29 @@ public class PlayerMovement : MonoBehaviour
 
         if (isGrounded && velocity.y < 0) {
             velocity.y = -2f;
+<<<<<<< HEAD
+=======
+            numJumps = 0;
+>>>>>>> 4c0d247e229fac5299665c76fff8e0fcf4c228de
         }
 
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
 
+<<<<<<< HEAD
         if (Input.GetButtonDown("Jump")) {
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
+=======
+        if (doubleJump) {
+            if (Input.GetButtonDown("Jump") && numJumps < 2) {
+                velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
+                numJumps++;
+            }
+        } else {
+            if (Input.GetButtonDown("Jump") && isGrounded) {
+                velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
+            }
+>>>>>>> 4c0d247e229fac5299665c76fff8e0fcf4c228de
         }
 
         Vector3 move = transform.right * x + transform.forward * z;

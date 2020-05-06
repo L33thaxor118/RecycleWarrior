@@ -16,7 +16,23 @@ TagManager:
   - Chip
   - Robot Kyle
   - Tree
+<<<<<<< HEAD
   - Ent
+=======
+  - MediumAmmo
+  - LightAmmo
+  - HeavyAmmo
+  - RifleUpgrade1
+  - RifleUpgrade2
+  - PistolUpgrade2
+  - SniperUpgrade1
+  - SniperUpgrade2
+  - ApplePowerup
+  - BananaPowerup
+  - KiwiPowerup
+  - PearPowerup
+  - StrawberryPowerup
+>>>>>>> 4c0d247e229fac5299665c76fff8e0fcf4c228de
   layers:
   - Default
   - TransparentFX

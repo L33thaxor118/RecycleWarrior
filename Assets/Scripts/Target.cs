@@ -9,11 +9,20 @@ public class Target : MonoBehaviour {
 	public GameObject trashDrop2;
 
 	public Transform dropLocation;
+<<<<<<< HEAD
+=======
+
+	public bool isDead;
+>>>>>>> 4c0d247e229fac5299665c76fff8e0fcf4c228de
 	
 
 	public void takeDamage(float damageAmount) {
 		health -= damageAmount; // damage occuring on object
+<<<<<<< HEAD
 		if (health <0f)
+=======
+		if (health <0f && !isDead)
+>>>>>>> 4c0d247e229fac5299665c76fff8e0fcf4c228de
 		{
 			Death();
 		}
@@ -23,7 +32,11 @@ public class Target : MonoBehaviour {
 		{
 			Instantiate(trashDrop1, dropLocation.position, dropLocation.rotation);
 			Instantiate(trashDrop1, dropLocation.position, dropLocation.rotation);
+<<<<<<< HEAD
 			Destroy(gameObject); // if the object health reaches 0, destroy the object 
+=======
+			isDead = true;
+>>>>>>> 4c0d247e229fac5299665c76fff8e0fcf4c228de
 		}
 	}
 }
