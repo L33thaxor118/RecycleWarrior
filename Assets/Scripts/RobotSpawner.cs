@@ -14,8 +14,10 @@ public class RobotSpawner : MonoBehaviour
   public Vector3 spawnPos7;
   public Vector3 spawnPos8;
   public int pn;
-  public GameObject spawnee;
-
+  public int whichRobot;
+  private GameObject spawnee;
+  public GameObject spawnee1;
+  public GameObject spawnee2;
 
   // public float lifetime == 10f;
     // Update is called once per frame
@@ -28,15 +30,27 @@ public class RobotSpawner : MonoBehaviour
       spawnPos6 = new Vector3(14.645f, 0.0f, 14.645f); // bl
       spawnPos7 = new Vector3(0.0f, 0.0f, 50.0f); // l
       spawnPos8 = new Vector3(14.645f, 0.0f, 85.355f); // tl
+      pn = Random.Range(1,8);
+      whichRobot = Random.Range(1,8);
     }
 
     void Update()
     {
 
 
-        pn = Random.Range(1,8);
         if (Input.GetKeyDown(KeyCode.N))
         {
+          pn = Random.Range(1,8);
+          whichRobot = Random.Range(1,8);
+          if(whichRobot <= 2)
+          {
+            spawnee = spawnee1;
+          }
+          else
+          {
+            spawnee = spawnee2;
+          }
+
           if(pn == 1)
           {
             Instantiate(spawnee, spawnPos1, Quaternion.identity);
