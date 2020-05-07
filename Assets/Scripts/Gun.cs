@@ -10,7 +10,7 @@ public class Gun : MonoBehaviour {
 	public float fireRate = 15f; // Number of shots fired per second
 	public Camera userCamera;  // change this depending on the setup
 	private float nextTime = 0f; // inital value for checking rate
-
+	private float spreadFactor = 0.02f;
 	public ParticleSystem muzzleEffect;
 	public ParticleSystem HitEffect;
 	public Transform gunTransform;
@@ -35,7 +35,12 @@ public class Gun : MonoBehaviour {
 		fireSound.Play();
 		muzzleEffect.Play();
 
-		if	(Physics.Raycast(userCamera.transform.position, userCamera.transform.forward, out hit, range))
+		Vector3 direction = userCamera.transform.forward;
+		direction.x += Random.Range(-spreadFactor, spreadFactor);
+		direction.y += Random.Range(-spreadFactor, spreadFactor);
+		direction.z += Random.Range(-spreadFactor, spreadFactor);
+
+		if	(Physics.Raycast(userCamera.transform.position,direction, out hit, range))
 		{
 			Debug.DrawRay(userCamera.transform.position, userCamera.transform.forward * range, Color.red, 10);
 			Debug.Log(hit.transform.name);
