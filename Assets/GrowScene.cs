@@ -25,7 +25,8 @@ public class GrowScene : MonoBehaviour
         Vector3 treeLocation = new Vector3(player.transform.position.x,player.transform.position.y, 0);
         Vector3 playerLocation = new Vector3(tree.transform.position.x,tree.transform.position.y, 0);
         if(Vector3.Distance(treeLocation, playerLocation) >= this.radius) {
-            Debug.Log("I'm dead");
+           
+           // Replace here with losing health function 
         }
         if(Input.GetKeyDown(KeyCode.E)) {
             StartCoroutine(GrowBorder());
