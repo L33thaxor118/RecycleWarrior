@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Bomb : MonoBehaviour
 {
+    public GameObject explosionEffect;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,5 +15,11 @@ public class Bomb : MonoBehaviour
     void Update()
     {
         
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+      Object.Instantiate(explosionEffect, gameObject.transform.position, gameObject.transform.rotation);
+      Destroy(gameObject);
     }
 }
