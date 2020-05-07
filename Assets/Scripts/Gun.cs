@@ -12,7 +12,7 @@ public class Gun : MonoBehaviour {
 	private float nextTime = 0f; // inital value for checking rate
 	private float spreadFactor = 0.02f;
 	public ParticleSystem muzzleEffect;
-	public ParticleSystem HitEffect;
+	public GameObject HitEffect;
 	public Transform gunTransform;
 
 	public AudioSource fireSound;
@@ -52,6 +52,9 @@ public class Gun : MonoBehaviour {
 			if (hit.rigidbody != null){
 				hit.rigidbody.AddForce(-hit.normal * force);
 			}
+
+			GameObject impact = Instantiate(HitEffect, hit.point, Quaternion.LookRotation(hit.normal));
+			Destroy(impact, 1.0f);
 		}
 
 	}
