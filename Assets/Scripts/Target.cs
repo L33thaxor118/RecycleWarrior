@@ -23,8 +23,12 @@ public class Target : MonoBehaviour {
 		// CHANGE BEHAVIOR BASED ON THIS OBJECTS TAG, FOR EXAMPLE, WE DONT WANT TO REDUCE TERRAIN HEALTH. OR WE MAY NOT WANT ENTs TO DROP ANYTHING.
 		void Death()
 		{
-			Instantiate(trashDrop1, dropLocation.position, dropLocation.rotation);
-			Instantiate(trashDrop1, dropLocation.position, dropLocation.rotation);
+			int random = Random.Range(1,10);
+			if (random <= 9) {
+				Instantiate(trashDrop1, dropLocation.position, dropLocation.rotation);
+			} else {
+				Instantiate(trashDrop2, dropLocation.position, dropLocation.rotation);
+			}
 			isDead = true;
 		}
 	}

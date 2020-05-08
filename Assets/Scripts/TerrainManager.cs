@@ -17,7 +17,7 @@ public class TerrainManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.U)) {
+        if(Input.GetKeyDown(KeyCode.M)) {
             this.level += 1;
             Debug.Log(" Currently on Level 1");
             Debug.Log(level);

@@ -31,12 +31,13 @@ public class WeaponPedestal : MonoBehaviour
 
     public Transform startPosition;
 
-    private bool pistol2Taken;
-    private bool rifle1Taken;
-    private bool rifle2Taken;
-    private bool sniper1Taken;
-    private bool sniper2Taken;
+    public bool pistol2Taken;
+    public bool rifle1Taken;
+    public bool rifle2Taken;
+    public bool sniper1Taken;
+    public bool sniper2Taken;
 
+    public AudioSource pickupSound;
     // Start is called before the first frame update
     void Start()
     {
@@ -116,6 +117,7 @@ public class WeaponPedestal : MonoBehaviour
     }
 
     void OnTriggerEnter(Collider other) {
+        pickupSound.Play();
         occupied = false;
         switch(currentPickup) {
             case "LightAmmo":

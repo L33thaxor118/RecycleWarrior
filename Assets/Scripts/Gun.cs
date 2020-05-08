@@ -62,14 +62,13 @@ public class Gun : MonoBehaviour {
 	}
 
 	void Shoot() {
-		StartCoroutine(Kick(gameObject.transform, gameObject.transform.position, gameObject.transform.position + gameObject.transform.forward*0.015f, 0.01f));
+		//StartCoroutine(Kick(gameObject.transform, gameObject.transform.position, gameObject.transform.position + gameObject.transform.forward*0.015f, 0.01f));
 		RaycastHit hit;
 		fireSound.Play();
 		muzzleEffect.Play();
 		spread += spreadFactor;
-		Debug.Log(spread);
 
-		 Vector3 dir = new Vector3(Random.Range(-spread, spread),Random.Range(spread,spread),1f);
+		 Vector3 dir = new Vector3(Random.Range(-spread, spread),Random.Range(-spread,spread),1f);
  		 Vector3 sprayDir = userCamera.transform.TransformVector(dir);
 
 
@@ -82,9 +81,9 @@ public class Gun : MonoBehaviour {
 				target.takeDamage(damage);
 			}
 
-			if (hit.rigidbody != null){
-				hit.rigidbody.AddForce(-hit.normal * force);
-			}
+			// if (hit.rigidbody != null){
+			// 	hit.rigidbody.AddForce(-hit.normal * force);
+			// }
 		}
 
 		if (hit.collider.gameObject != null) {

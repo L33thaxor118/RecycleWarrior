@@ -42,7 +42,7 @@ public class UISystem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        level.text = "Level 1";
+        level.text = "Level " + waveSystem.level.ToString();
         int currentGunIdx = weaponSwitch.currentIdx;
         if (weaponSwitch.currentIdx != 0) {
             crossHairs.restingSize = weaponSwitch.weapons[currentGunIdx].GetComponent<Gun>().spreadFactor;
@@ -57,5 +57,6 @@ public class UISystem : MonoBehaviour
         }
         healthSlider.value = playerHealth.health;
         treeSlider.value = treeTarget.health;
+        robotCount.text = waveSystem.robotsRemaining.ToString();
     }
 }

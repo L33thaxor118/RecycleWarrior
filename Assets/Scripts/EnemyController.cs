@@ -10,7 +10,7 @@ public class EnemyController : MonoBehaviour
     Transform playerTarget;
     Transform treeTarget;
     GameObject currentEntTarget;
-
+    
     public float distanceEnt = 200f;
 
     private int deadTime = 0;
