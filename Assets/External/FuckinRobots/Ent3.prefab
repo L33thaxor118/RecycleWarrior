@@ -1775,7 +1775,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 227e8dd565fec43cbac539be76659cb7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitDelay: 1
+  hitDelay: 1.5
   myAnimationController: {fileID: 1544998784086348642}
   distanceEnt: 0
   selfTarget: {fileID: 1544998783291495810}

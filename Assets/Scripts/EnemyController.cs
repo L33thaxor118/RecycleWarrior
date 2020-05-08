@@ -48,7 +48,7 @@ public class EnemyController : MonoBehaviour
           collision.gameObject.GetComponents<AudioSource>()[2].Play();
           timeTillNextHit = hitDelay;
         } else if (collision.gameObject.CompareTag("Ent") && timeTillNextHit <= 0) {
-          collision.gameObject.GetComponent<Target>().health -= 10;
+          collision.gameObject.GetComponent<Target>().takeDamage(10);
           timeTillNextHit = hitDelay;
         }
       }
@@ -58,6 +58,7 @@ public class EnemyController : MonoBehaviour
         agent.enabled = false;
         mainRigidBody.detectCollisions = false;
         deadTime++;
+        isHitting = false;
         if (deadTime > 25) {
           myAnimationController.enabled = false;
           Destroy(gameObject, 15);
@@ -68,20 +69,19 @@ public class EnemyController : MonoBehaviour
       float distancePlayer = Vector3.Distance(playerTarget.position, transform.position);
 
       GameObject[] ents = GameObject.FindGameObjectsWithTag("Ent");
-      if(ents.Length > 0) {
-        float closest = 100000f;
-        foreach (GameObject ent in ents) {
-          float entDistance = Vector3.Distance(ent.transform.position, transform.position);
-          if (entDistance < closest) {
-            closest = entDistance;
-            currentEntTarget = ent;
-          }
+
+      float closest = 100000f;
+      foreach (GameObject ent in ents) {
+        if (ent.GetComponent<Target>().health <= 0) {
+          continue;
         }
-        distanceEnt = closest;
+        float entDistance = Vector3.Distance(ent.transform.position, transform.position);
+        if (entDistance < closest) {
+          closest = entDistance;
+          currentEntTarget = ent;
+        }
       }
-      else{
-        distanceEnt = 200f;
-      }
+      distanceEnt = closest;
 
       float distanceTree = Vector3.Distance(treeTarget.position, transform.position);
 
