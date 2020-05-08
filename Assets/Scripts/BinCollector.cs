@@ -7,13 +7,13 @@ public class BinCollector : MonoBehaviour
 {
     private BoxCollider dropBox;
     private List<string> redAcceptTags = new List<string>(){"Can"};
-    private List<string> redSpecialTags = new List<string>(){""};
+    private List<string> redSpecialTags = new List<string>(){"Coke"};
 
-    private List<string> blueAcceptTags = new List<string>(){ "Chip", "Battery"};
-    private List<string> blueSpecialTags = new List<string>(){"Computer"};
+    private List<string> blueAcceptTags = new List<string>(){"Battery"};
+    private List<string> blueSpecialTags = new List<string>(){"Chip"};
 
     private List<string> yellowAcceptTags = new List<string>(){"PlasticBottle"};
-    private List<string> yellowSpecialTags = new List<string>(){""};
+    private List<string> yellowSpecialTags = new List<string>(){"Milk"};
 
 
     private ParticleSystem fire;
@@ -56,18 +56,29 @@ public class BinCollector : MonoBehaviour
             if (redAcceptTags.Contains(other.gameObject.tag)) {
                 trashbinRedFX.Play();
                 itemCount++;
-            } else {
+            } 
+            else if (redSpecialTags.Contains(other.gameObject.tag)) {
+                trashbinRedFX.Play();
+                specialItemCount++;
+            }
+            else {
                 fire.Play();
             }
         } else if (gameObject.name == "TrashbinYellow") { //plastics
             if (yellowAcceptTags.Contains(other.gameObject.tag)) {
                 trashbinYellowFX.Play();
                 itemCount++;
-            } else {
+            } 
+            else if (yellowSpecialTags.Contains(other.gameObject.tag)) {
+                trashbinYellowFX.Play();
+                specialItemCount++;
+            }
+            else {
                 fire.Play();
             }
         } else if (gameObject.name == "TrashbinBlue") { //electronics
             if (blueSpecialTags.Contains(other.gameObject.tag)) {
+                trashbinBlueFX.Play();
                 specialItemCount++;
             }
             else if (blueAcceptTags.Contains(other.gameObject.tag)) {

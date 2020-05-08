@@ -29,6 +29,9 @@ TagManager:
   - KiwiPowerup
   - PearPowerup
   - StrawberryPowerup
+  - Ent
+  - Milk
+  - Coke
   layers:
   - Default
   - TransparentFX

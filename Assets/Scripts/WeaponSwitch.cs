@@ -58,11 +58,24 @@ public class WeaponSwitch : MonoBehaviour
     }
 
     public void addPistol2() {
-        weapons.Add(Pistol2);
+        //weapons.Add(Pistol2);
+        weapons[1] = Pistol2;
     }
 
     public void addRifle1() {
         weapons.Add(Rifle1);
+    }
+
+    public void addRifle2() {
+        weapons[2] = Rifle2;
+    }
+
+    public void addSniper1() {
+        weapons.Add(Sniper1);
+    }
+
+    public void addSniper2() {
+        weapons[3] = Sniper2;
     }
 
 }

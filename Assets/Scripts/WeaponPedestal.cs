@@ -31,6 +31,12 @@ public class WeaponPedestal : MonoBehaviour
 
     public Transform startPosition;
 
+    private bool pistol2Taken;
+    private bool rifle1Taken;
+    private bool rifle2Taken;
+    private bool sniper1Taken;
+    private bool sniper2Taken;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -44,13 +50,13 @@ public class WeaponPedestal : MonoBehaviour
             occupied = true;
             currentPickup = "LightAmmo";
             StartCoroutine(MoveObject(lightAmmo.transform, lightAmmo.transform.position, new Vector3 (lightAmmo.transform.position.x, 1.2f, lightAmmo.transform.position.z), 3f));
-            redBinCollector.itemCount -= 3;
+            yellowBinCollector.itemCount -= 3;
         }
         else if (blueBinCollector.itemCount >= 3 && !occupied) {
             occupied = true;
             currentPickup = "MediumAmmo";
             StartCoroutine(MoveObject(medAmmo.transform, medAmmo.transform.position, new Vector3 (medAmmo.transform.position.x, 1.2f, medAmmo.transform.position.z), 3f));
-            redBinCollector.itemCount -= 3;
+            blueBinCollector.itemCount -= 3;
         }
         else if (redBinCollector.itemCount >= 3 && !occupied) {
             occupied = true;
@@ -58,10 +64,42 @@ public class WeaponPedestal : MonoBehaviour
             StartCoroutine(MoveObject(heavyAmmo.transform, heavyAmmo.transform.position, new Vector3 (heavyAmmo.transform.position.x, 1.2f, heavyAmmo.transform.position.z), 3f));
             redBinCollector.itemCount -= 3;
         } else if (blueBinCollector.specialItemCount >= 5) {
-            occupied = true;
-            currentPickup = "RifleUpgrade1";
-            StartCoroutine(MoveObject(rifle1.transform, rifle1.transform.position, new Vector3 (rifle1.transform.position.x, 1.2f, rifle1.transform.position.z), 3f));
-            blueBinCollector.specialItemCount -= 5;
+            if (!rifle1Taken) {
+                occupied = true;
+                rifle1Taken = true;
+                currentPickup = "RifleUpgrade1";
+                StartCoroutine(MoveObject(rifle1.transform, rifle1.transform.position, new Vector3 (rifle1.transform.position.x, 1.2f, rifle1.transform.position.z), 3f));
+                blueBinCollector.specialItemCount -= 5;
+            } else if (!rifle2Taken) {
+                occupied = true;
+                rifle2Taken = true;
+                currentPickup = "RifleUpgrade2";
+                StartCoroutine(MoveObject(rifle2.transform, rifle2.transform.position, new Vector3 (rifle2.transform.position.x, 1.2f, rifle2.transform.position.z), 3f));
+                blueBinCollector.specialItemCount -= 5;
+            } 
+        } else if (redBinCollector.specialItemCount >= 5 && !occupied) {
+            if (!sniper1Taken) {
+                occupied = true;
+                sniper1Taken = true;
+                currentPickup = "SniperUpgrade1";
+                StartCoroutine(MoveObject(sniper1.transform, sniper1.transform.position, new Vector3 (sniper1.transform.position.x, 1.2f, sniper1.transform.position.z), 3f));
+                redBinCollector.specialItemCount -= 5;
+            } else if (!sniper2Taken) {
+                occupied = true;
+                sniper2Taken = true;
+                currentPickup = "SniperUpgrade2";
+                StartCoroutine(MoveObject(sniper2.transform, sniper2.transform.position, new Vector3 (sniper2.transform.position.x, 1.2f, sniper2.transform.position.z), 3f));
+                redBinCollector.specialItemCount -= 5;
+            }
+
+        } else if (yellowBinCollector.specialItemCount >= 5 && !occupied) {
+            if (!pistol2Taken) {
+                occupied = true;
+                pistol2Taken = true;
+                currentPickup = "PistolUpgrade2";
+                StartCoroutine(MoveObject(pistol2.transform, pistol2.transform.position, new Vector3 (pistol2.transform.position.x, 1.2f, pistol2.transform.position.z), 3f));
+                yellowBinCollector.specialItemCount -= 5;
+            }
         }
         
     }
@@ -78,7 +116,6 @@ public class WeaponPedestal : MonoBehaviour
     }
 
     void OnTriggerEnter(Collider other) {
-        Debug.Log("picked up some shit");
         occupied = false;
         switch(currentPickup) {
             case "LightAmmo":
@@ -100,6 +137,18 @@ public class WeaponPedestal : MonoBehaviour
             case "RifleUpgrade1":
             other.gameObject.GetComponent<WeaponSwitch>().addRifle1();
             rifle1.transform.position = startPosition.position;
+            break;
+            case "RifleUpgrade2":
+            other.gameObject.GetComponent<WeaponSwitch>().addRifle2();
+            rifle2.transform.position = startPosition.position;
+            break;
+            case "SniperUpgrade1":
+            other.gameObject.GetComponent<WeaponSwitch>().addSniper1();
+            sniper1.transform.position = startPosition.position;
+            break;
+            case "SniperUpgrade2":
+            other.gameObject.GetComponent<WeaponSwitch>().addSniper2();
+            sniper2.transform.position = startPosition.position;
             break;
         }
     }

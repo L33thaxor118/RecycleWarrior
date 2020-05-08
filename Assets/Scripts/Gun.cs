@@ -17,7 +17,12 @@ public class Gun : MonoBehaviour {
 
 	public AudioSource fireSound;
 
+	public AudioSource emptySound;
+
+	public Inventory inventory;
 	private float recoil = 0f;
+
+	public int ammoType;
 
 	void Start() {
 	}
@@ -25,8 +30,23 @@ public class Gun : MonoBehaviour {
 	void Update() {
 		if (Input.GetButton("Fire1") && Time.time >= nextTime)
 		{
-			nextTime = Time.time + 1f/fireRate;
-			Shoot();
+			if (ammoType == 1 && inventory.lightAmmo > 0) {
+				nextTime = Time.time + 1f/fireRate;
+				inventory.lightAmmo--;
+				Shoot();
+			} else if (ammoType == 2 && inventory.mediumAmmo > 0) {
+				nextTime = Time.time + 1f/fireRate;
+				inventory.mediumAmmo--;
+				Shoot();
+			} else if (ammoType == 3 && inventory.heavyAmmo > 0) {
+				nextTime = Time.time + 1f/fireRate;
+				inventory.heavyAmmo--;
+				Shoot();
+			} else {
+				//empty ammo sound play
+				emptySound.Play();
+			}
+
 		}
 	}
 

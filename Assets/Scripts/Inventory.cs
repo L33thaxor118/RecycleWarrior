@@ -28,11 +28,11 @@ public class Inventory : MonoBehaviour
     {
         Debug.Log("collision on trigger!");
         //THESE NEED TO BE IN SAME ORDER AS UI PREVIEWS
-        if (collision.gameObject.tag == "Taco") {
+        if (collision.gameObject.tag == "Coke") {
             Destroy(collision.gameObject);
             pickupFX.Play();
             trashAmmo[0]++;
-        } else if (collision.gameObject.tag == "Computer") {
+        } else if (collision.gameObject.tag == "Milk") {
             Destroy(collision.gameObject);
             pickupFX.Play();
             trashAmmo[1]++;
