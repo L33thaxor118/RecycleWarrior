@@ -5,12 +5,17 @@ using UnityEngine.AI;
 
 public class EntController : MonoBehaviour
 {
+
+  public float hitDelay = 1f;
+  
   [SerializeField] private Animator myAnimationController;
     // public float lookRadius = f;
-    Transform target1;
+    GameObject currentTargetRobot;
     // Transform target2;
     public float distanceEnt;
     NavMeshAgent agent;
+    
+    public Target selfTarget;
 
     void Start(){
       // target2 = GameObject.FindGameObjectWithTag("Tree").transform;
@@ -19,18 +24,26 @@ public class EntController : MonoBehaviour
 
     void Update(){
 
-      if (Input.GetKeyDown(KeyCode.X))
-      {
-        myAnimationController.SetBool("Death",true);
+      if (selfTarget.health <= 0) {
+        myAnimationController.SetBool("Death", true);
+        Destroy(gameObject, 15);
+        agent.isStopped = true;
       }
 
       //Robot Kyle comes out
-      if(GameObject.FindGameObjectWithTag("Robot Kyle") != null){
-        target1 = GameObject.FindGameObjectWithTag("Robot Kyle").transform;
-        distanceEnt = Vector3.Distance(target1.position, transform.position);
-        myAnimationController.SetBool("Go",true);
-        if(distanceEnt >= 0.5f){
-          agent.SetDestination(target1.position);
+      GameObject[] robots = GameObject.FindGameObjectsWithTag("Robot Kyle");
+      if(robots.Length > 0){
+        myAnimationController.SetBool("Go", true);
+        float closest = 100000f;
+        foreach (GameObject robot in robots ) {
+          float robotDistance = Vector3.Distance(robot.transform.position, transform.position);
+          if (robotDistance < closest) {
+            closest = robotDistance;
+            currentTargetRobot = robot;
+          }
+        }
+        if(closest >= 0.5f){
+          agent.SetDestination(currentTargetRobot.transform.position);
         }
       }
       else

@@ -3198,6 +3198,76 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e838377b4dd58de40a70fed5052dcbc8, type: 3}
+--- !u!1001 &902481843
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6296436107375729484, guid: d26a08c15469e4a84a5d0e7acde939a3,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 55.705997
+      objectReference: {fileID: 0}
+    - target: {fileID: 6296436107375729484, guid: d26a08c15469e4a84a5d0e7acde939a3,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6296436107375729484, guid: d26a08c15469e4a84a5d0e7acde939a3,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 39.018085
+      objectReference: {fileID: 0}
+    - target: {fileID: 6296436107375729484, guid: d26a08c15469e4a84a5d0e7acde939a3,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6296436107375729484, guid: d26a08c15469e4a84a5d0e7acde939a3,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6296436107375729484, guid: d26a08c15469e4a84a5d0e7acde939a3,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6296436107375729484, guid: d26a08c15469e4a84a5d0e7acde939a3,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6296436107375729484, guid: d26a08c15469e4a84a5d0e7acde939a3,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 59
+      objectReference: {fileID: 0}
+    - target: {fileID: 6296436107375729484, guid: d26a08c15469e4a84a5d0e7acde939a3,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6296436107375729484, guid: d26a08c15469e4a84a5d0e7acde939a3,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6296436107375729484, guid: d26a08c15469e4a84a5d0e7acde939a3,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6299646630138760082, guid: d26a08c15469e4a84a5d0e7acde939a3,
+        type: 3}
+      propertyPath: m_Name
+      value: KiwiPowerup (3)
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: -6621254417131518233, guid: d26a08c15469e4a84a5d0e7acde939a3, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: d26a08c15469e4a84a5d0e7acde939a3, type: 3}
 --- !u!1 &948406105 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1294672646082164, guid: 8d43e76b346f2f8448846e9211629d15,
@@ -8949,6 +9019,76 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e838377b4dd58de40a70fed5052dcbc8, type: 3}
+--- !u!1001 &1813879258
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6296436107375729484, guid: d26a08c15469e4a84a5d0e7acde939a3,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 55.705997
+      objectReference: {fileID: 0}
+    - target: {fileID: 6296436107375729484, guid: d26a08c15469e4a84a5d0e7acde939a3,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6296436107375729484, guid: d26a08c15469e4a84a5d0e7acde939a3,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 39.018085
+      objectReference: {fileID: 0}
+    - target: {fileID: 6296436107375729484, guid: d26a08c15469e4a84a5d0e7acde939a3,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6296436107375729484, guid: d26a08c15469e4a84a5d0e7acde939a3,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6296436107375729484, guid: d26a08c15469e4a84a5d0e7acde939a3,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6296436107375729484, guid: d26a08c15469e4a84a5d0e7acde939a3,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6296436107375729484, guid: d26a08c15469e4a84a5d0e7acde939a3,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 58
+      objectReference: {fileID: 0}
+    - target: {fileID: 6296436107375729484, guid: d26a08c15469e4a84a5d0e7acde939a3,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6296436107375729484, guid: d26a08c15469e4a84a5d0e7acde939a3,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6296436107375729484, guid: d26a08c15469e4a84a5d0e7acde939a3,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6299646630138760082, guid: d26a08c15469e4a84a5d0e7acde939a3,
+        type: 3}
+      propertyPath: m_Name
+      value: KiwiPowerup (2)
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: -6621254417131518233, guid: d26a08c15469e4a84a5d0e7acde939a3, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: d26a08c15469e4a84a5d0e7acde939a3, type: 3}
 --- !u!1001 &1839710104
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9694,6 +9834,76 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 84d3b7c6229714b139b543ab4e439099, type: 3}
+--- !u!1001 &2011180838
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6296436107375729484, guid: d26a08c15469e4a84a5d0e7acde939a3,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 55.705997
+      objectReference: {fileID: 0}
+    - target: {fileID: 6296436107375729484, guid: d26a08c15469e4a84a5d0e7acde939a3,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6296436107375729484, guid: d26a08c15469e4a84a5d0e7acde939a3,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 39.018085
+      objectReference: {fileID: 0}
+    - target: {fileID: 6296436107375729484, guid: d26a08c15469e4a84a5d0e7acde939a3,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6296436107375729484, guid: d26a08c15469e4a84a5d0e7acde939a3,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6296436107375729484, guid: d26a08c15469e4a84a5d0e7acde939a3,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6296436107375729484, guid: d26a08c15469e4a84a5d0e7acde939a3,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6296436107375729484, guid: d26a08c15469e4a84a5d0e7acde939a3,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 57
+      objectReference: {fileID: 0}
+    - target: {fileID: 6296436107375729484, guid: d26a08c15469e4a84a5d0e7acde939a3,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6296436107375729484, guid: d26a08c15469e4a84a5d0e7acde939a3,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6296436107375729484, guid: d26a08c15469e4a84a5d0e7acde939a3,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6299646630138760082, guid: d26a08c15469e4a84a5d0e7acde939a3,
+        type: 3}
+      propertyPath: m_Name
+      value: KiwiPowerup (1)
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: -6621254417131518233, guid: d26a08c15469e4a84a5d0e7acde939a3, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: d26a08c15469e4a84a5d0e7acde939a3, type: 3}
 --- !u!1 &2036986150
 GameObject:
   m_ObjectHideFlags: 0

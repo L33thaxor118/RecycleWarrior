@@ -1775,8 +1775,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 227e8dd565fec43cbac539be76659cb7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hitDelay: 1
   myAnimationController: {fileID: 1544998784086348642}
   distanceEnt: 0
+  selfTarget: {fileID: 1544998783291495810}
 --- !u!114 &1544998783291495810
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1789,7 +1791,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18b10e535b35f432c9d5254a8aa4a718, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 50
+  health: 500
   trashDrop1: {fileID: 0}
   trashDrop2: {fileID: 0}
   dropLocation: {fileID: 0}

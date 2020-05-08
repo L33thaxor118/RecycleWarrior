@@ -7,9 +7,9 @@ public class EnemyController : MonoBehaviour
 {
   [SerializeField] private Animator myAnimationController;
     public float lookRadius = 5f;
-    Transform target1;
-    Transform target2;
-    Transform target3;
+    Transform playerTarget;
+    Transform treeTarget;
+    GameObject currentEntTarget;
 
     public float distanceEnt = 200f;
 
@@ -31,10 +31,10 @@ public class EnemyController : MonoBehaviour
 
     void Start(){
       timeTillNextHit = hitDelay;
-      target1 = GameObject.FindGameObjectWithTag("Player").transform;
-      target2 = GameObject.FindGameObjectWithTag("Tree").transform;
+      playerTarget = GameObject.FindGameObjectWithTag("Player").transform;
+      treeTarget = GameObject.FindGameObjectWithTag("Tree").transform;
       if(GameObject.FindGameObjectWithTag("Ent") != null){
-        target3 = GameObject.FindGameObjectWithTag("Ent").transform;
+        currentEntTarget = GameObject.FindGameObjectWithTag("Ent");
       }
     }
 
@@ -47,6 +47,9 @@ public class EnemyController : MonoBehaviour
           collision.gameObject.GetComponent<PlayerHealth>().health -= 10;
           collision.gameObject.GetComponents<AudioSource>()[2].Play();
           timeTillNextHit = hitDelay;
+        } else if (collision.gameObject.CompareTag("Ent") && timeTillNextHit <= 0) {
+          collision.gameObject.GetComponent<Target>().health -= 10;
+          timeTillNextHit = hitDelay;
         }
       }
 
@@ -57,35 +60,44 @@ public class EnemyController : MonoBehaviour
         deadTime++;
         if (deadTime > 25) {
           myAnimationController.enabled = false;
+          Destroy(gameObject, 15);
         }
         return;
       }
 
-      float distancePlayer = Vector3.Distance(target1.position, transform.position);
+      float distancePlayer = Vector3.Distance(playerTarget.position, transform.position);
 
-      if(GameObject.FindGameObjectWithTag("Ent") != null){
-        target3 = GameObject.FindGameObjectWithTag("Ent").transform;
-        distanceEnt = Vector3.Distance(target3.position, transform.position);
+      GameObject[] ents = GameObject.FindGameObjectsWithTag("Ent");
+      if(ents.Length > 0) {
+        float closest = 100000f;
+        foreach (GameObject ent in ents) {
+          float entDistance = Vector3.Distance(ent.transform.position, transform.position);
+          if (entDistance < closest) {
+            closest = entDistance;
+            currentEntTarget = ent;
+          }
+        }
+        distanceEnt = closest;
       }
       else{
         distanceEnt = 200f;
       }
 
-      float distanceTree = Vector3.Distance(target2.position, transform.position);
+      float distanceTree = Vector3.Distance(treeTarget.position, transform.position);
 
-      if(distanceEnt <= distancePlayer)
+      if(distanceEnt <= distancePlayer && currentEntTarget.GetComponent<Target>().health > 0)
       {
-        if(distanceEnt >= 0.5f){
-          agent.SetDestination(target3.position);
+        if(distanceEnt >= 0.5f) {
+          agent.SetDestination(currentEntTarget.transform.position);
         }
       }
       else if(distancePlayer <= lookRadius)
       {
-        agent.SetDestination(target1.position);
+        agent.SetDestination(playerTarget.position);
       }
       else
       {
-        agent.SetDestination(target2.position);
+        agent.SetDestination(treeTarget.position);
       }
     }
 
