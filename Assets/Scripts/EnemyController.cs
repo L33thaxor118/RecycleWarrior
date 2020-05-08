@@ -50,6 +50,9 @@ public class EnemyController : MonoBehaviour
         } else if (collision.gameObject.CompareTag("Ent") && timeTillNextHit <= 0) {
           collision.gameObject.GetComponent<Target>().takeDamage(10);
           timeTillNextHit = hitDelay;
+        } else if (collision.gameObject.CompareTag("Tree") && timeTillNextHit <= 0) {
+          collision.gameObject.GetComponent<Target>().takeDamage(10);
+          timeTillNextHit = hitDelay;
         }
       }
 

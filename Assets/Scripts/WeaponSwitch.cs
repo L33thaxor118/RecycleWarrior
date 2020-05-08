@@ -15,7 +15,7 @@ public class WeaponSwitch : MonoBehaviour
     public GameObject Sniper1;
     public GameObject Sniper2;
     public int currentIdx;
-    private List<GameObject> weapons;
+    public List<GameObject> weapons;
     // Start is called before the first frame update
     void Start()
     {

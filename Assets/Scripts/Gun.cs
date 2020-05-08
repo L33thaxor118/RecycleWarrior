@@ -23,7 +23,7 @@ public class Gun : MonoBehaviour {
 	public AudioSource emptySound;
 
 	public Inventory inventory;
-	private float spread = 0f;
+	public float spread = 0f;
 
 	public float spreadFactor = 1f;
 
