@@ -17,6 +17,8 @@ public class TreePowerups : MonoBehaviour
 
     public Transform SpawnLocation;
 
+    public GameObject regenFX;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -45,6 +47,14 @@ public class TreePowerups : MonoBehaviour
         if (gameObject.GetComponent<Target>().isDead) {
             Cursor.lockState = CursorLockMode.None;
             SceneManager.LoadScene("GameOver");
+        }
+    }
+
+    private void OnTriggerEnter(Collider other) {
+        if (other.gameObject.CompareTag("Avocado") || other.gameObject.CompareTag("Burger")) {
+            gameObject.GetComponent<Target>().health += 25;
+            regenFX.GetComponent<ParticleSystem>().Play();
+            Destroy(other);
         }
     }
 }

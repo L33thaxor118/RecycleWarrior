@@ -45,8 +45,9 @@ public class UISystem : MonoBehaviour
         level.text = "Level " + waveSystem.level.ToString();
         int currentGunIdx = weaponSwitch.currentIdx;
         if (weaponSwitch.currentIdx != 0) {
-            crossHairs.restingSize = weaponSwitch.weapons[currentGunIdx].GetComponent<Gun>().spreadFactor;
-            crossHairs.currentSize = weaponSwitch.weapons[currentGunIdx].GetComponent<Gun>().spread*100;
+            float spreadFactor = weaponSwitch.weapons[currentGunIdx].GetComponent<Gun>().spreadFactor;
+            crossHairs.restingSize = spreadFactor;
+            crossHairs.currentSize = spreadFactor + weaponSwitch.weapons[currentGunIdx].GetComponent<Gun>().spread ;
             if (currentGunIdx == 1) {
                 bulletCount.text = inventory.lightAmmo.ToString();
             } else if (currentGunIdx == 2) {
