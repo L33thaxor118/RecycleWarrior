@@ -21,7 +21,7 @@ public class Inventory : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     private void OnTriggerEnter(Collider collision)
@@ -30,42 +30,52 @@ public class Inventory : MonoBehaviour
         //THESE NEED TO BE IN SAME ORDER AS UI PREVIEWS
         if (collision.gameObject.tag == "Taco") {
             Destroy(collision.gameObject);
+            pickupFX.pitch = Random.Range(0.9f, 1.2f);
             pickupFX.Play();
             trashAmmo[0]++;
         } else if (collision.gameObject.tag == "Computer") {
             Destroy(collision.gameObject);
+            pickupFX.pitch = Random.Range(0.9f, 1.2f);
             pickupFX.Play();
             trashAmmo[1]++;
         } else if (collision.gameObject.tag == "Chip") {
             Destroy(collision.gameObject);
+            pickupFX.pitch = Random.Range(0.9f, 1.2f);
             pickupFX.Play();
             trashAmmo[2]++;
         } else if (collision.gameObject.tag == "Can") {
             Destroy(collision.gameObject);
+            pickupFX.pitch = Random.Range(0.9f, 1.2f);
             pickupFX.Play();
             trashAmmo[3]++;
         } else if (collision.gameObject.tag == "PlasticBottle") {
             Destroy(collision.gameObject);
+            pickupFX.pitch = Random.Range(0.9f, 1.2f);
             pickupFX.Play();
             trashAmmo[4]++;
         } else if (collision.gameObject.tag == "Burger") {
             Destroy(collision.gameObject);
+            pickupFX.pitch = Random.Range(0.9f, 1.2f);
             pickupFX.Play();
             trashAmmo[5]++;
         } else if (collision.gameObject.tag == "Battery") {
             Destroy(collision.gameObject);
+            pickupFX.pitch = Random.Range(0.9f, 1.2f);
             pickupFX.Play();
             trashAmmo[6]++;
         } else if (collision.gameObject.tag == "Avocado") {
             Destroy(collision.gameObject);
+            pickupFX.pitch = Random.Range(0.9f, 1.2f);
             pickupFX.Play();
             trashAmmo[7]++;
         } else if (collision.gameObject.tag == "PearPowerup") {
             Destroy(collision.gameObject);
+            pickupFX.pitch = Random.Range(0.9f, 1.2f);
             pickupFX.Play();
             trashAmmo[8]++;
         } else if (collision.gameObject.tag == "KiwiPowerup") {
             Destroy(collision.gameObject);
+            pickupFX.pitch = Random.Range(0.9f, 1.2f);
             pickupFX.Play();
             trashAmmo[9]++;
         }

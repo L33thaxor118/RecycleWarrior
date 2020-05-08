@@ -11,12 +11,20 @@ public class EnemyController : MonoBehaviour
     Transform target2;
     Transform target3;
 
+
     public float distanceEnt = 200f;
 
     private int deadTime = 0;
 
     public Collider mainCollider;
     public Rigidbody mainRigidBody;
+    public AudioSource walk;
+    public AudioSource hitPlayer;
+    public AudioSource hitWood;
+    public AudioSource spawn;
+    public AudioSource death;
+    private int deathCounter = 0;
+    private bool hurtPlayer;
 
     public Target target;
 
@@ -28,18 +36,49 @@ public class EnemyController : MonoBehaviour
       if(GameObject.FindGameObjectWithTag("Ent") != null){
         target3 = GameObject.FindGameObjectWithTag("Ent").transform;
       }
+      hurtPlayer = false;
+      spawn.Play();
     }
 
     void Update(){
+      //sound
+      if (myAnimationController.GetBool("Hit") == false && walk.isPlaying == false && deathCounter == 0)
+      {
+        walk.Play();
+        hitPlayer.Stop();
+        hitWood.Stop();
+      }
+
+      if(myAnimationController.GetBool("Hit") == true && hitWood.isPlaying == false
+        && deathCounter == 0 && hitPlayer.isPlaying == false)
+      {
+        walk.Stop();
+        if(hurtPlayer == true)
+        {
+          hitPlayer.Play();
+        }
+        else
+        {
+          hitWood.Play();
+        }
+      }
+
+
 
       if (target.isDead) {
         mainCollider.enabled = false;
         agent.enabled = false;
         mainRigidBody.detectCollisions = false;
-        deadTime++;
-        if (deadTime > 25) {
-          myAnimationController.enabled = false;
+        if(death.isPlaying == false && deathCounter == 0)
+        {
+          walk.Stop();
+          hitPlayer.Stop();
+          hitWood.Stop();
+          death.Play();
+          deathCounter++;
         }
+          myAnimationController.enabled = false;
+          Destroy(this.gameObject,2);
         return;
       }
 
@@ -80,6 +119,9 @@ public class EnemyController : MonoBehaviour
       {
         myAnimationController.SetBool("Hit",true);
       }
+      if(collision.gameObject.CompareTag("Player")){
+        hurtPlayer = true;
+      }
     }
 
     private void OnTriggerEnter(Collider collision)
@@ -91,6 +133,9 @@ public class EnemyController : MonoBehaviour
       {
         myAnimationController.SetBool("Hit",true);
       }
+      if(collision.gameObject.CompareTag("Player")){
+        hurtPlayer = true;
+      }
     }
 
     private void OnCollisionExit(Collision collision)
@@ -100,6 +145,9 @@ public class EnemyController : MonoBehaviour
          collision.gameObject.CompareTag("Ent"))
       {
         myAnimationController.SetBool("Hit",false);
+      }
+      if(collision.gameObject.CompareTag("Player")){
+        hurtPlayer = false;
       }
     }
 
@@ -112,6 +160,9 @@ public class EnemyController : MonoBehaviour
       {
         myAnimationController.SetBool("Hit",false);
       }
+      if(collision.gameObject.CompareTag("Player")){
+        hurtPlayer = false;
+      }
     }
 
     void OnDrawGizmosSelected()
@@ -120,6 +171,3 @@ public class EnemyController : MonoBehaviour
       Gizmos.DrawWireSphere(transform.position, lookRadius);
     }
 }
-
-
-

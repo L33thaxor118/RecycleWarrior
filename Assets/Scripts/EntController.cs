@@ -8,7 +8,12 @@ public class EntController : MonoBehaviour
   [SerializeField] private Animator myAnimationController;
     // public float lookRadius = f;
     Transform target1;
+    public AudioSource hitRobot;
+    public AudioSource walk;
+    public AudioSource death;
+    private int deathCounter = 0;
     // Transform target2;
+
     public float distanceEnt;
     NavMeshAgent agent;
 
@@ -19,9 +24,28 @@ public class EntController : MonoBehaviour
 
     void Update(){
 
+      if(myAnimationController.GetBool("Hit") == true && GameObject.FindGameObjectWithTag("Robot Kyle") != null
+         && deathCounter == 0 && hitRobot.isPlaying == false )
+      {
+        walk.Stop();
+        hitRobot.Play();
+      }
+
+      if (myAnimationController.GetBool("Hit") == false && walk.isPlaying == false
+          && GameObject.FindGameObjectWithTag("Robot Kyle") != null && deathCounter == 0)
+      {
+        walk.Play();
+        hitRobot.Stop();
+        // hitWood.Stop();
+      }
+
       if (Input.GetKeyDown(KeyCode.X))
       {
         myAnimationController.SetBool("Death",true);
+        deathCounter++;
+        walk.Stop();
+        hitRobot.Stop();
+        death.Play();
       }
 
       //Robot Kyle comes out
@@ -37,6 +61,14 @@ public class EntController : MonoBehaviour
       {
         myAnimationController.SetBool("Go",false);
       }
+
+      if(GameObject.FindGameObjectWithTag("Robot Kyle") == null)
+      {
+        myAnimationController.SetBool("Hit",false);
+        hitRobot.Stop();
+        walk.Stop();
+      }
+
     }
 
     private void OnCollisionEnter(Collision collision)

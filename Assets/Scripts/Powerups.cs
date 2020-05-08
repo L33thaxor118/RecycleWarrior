@@ -25,7 +25,7 @@ public class Powerups : MonoBehaviour
     {
         originalSpeed = playerMovement.speed;
         originalJump = playerMovement.jumpHeight;
-        
+
     }
 
     // Update is called once per frame
@@ -36,7 +36,7 @@ public class Powerups : MonoBehaviour
         } else {
 
         }
-        
+
         if (strawberryTimeRemaining <= 0f) {
             strawberryTimeRemaining = 0f;
             playerMovement.doubleJump = false;
@@ -50,14 +50,14 @@ public class Powerups : MonoBehaviour
     private void OnTriggerEnter(Collider collision)
     {
         if (collision.gameObject.tag == "ApplePowerup") {
-            Destroy(collision.gameObject);  
+            Destroy(collision.gameObject);
             pickupFX.Play();
             //regenerate health
         } else if (collision.gameObject.tag == "BananaPowerup") {
             Destroy(collision.gameObject);
             pickupFX.Play();
         } else if (collision.gameObject.tag == "StrawberryPowerup") {
-            Destroy(collision.gameObject);            
+            Destroy(collision.gameObject);
             pickupFX.Play();
             strawberryTimeRemaining += powerupTime;
             playerMovement.doubleJump = true;

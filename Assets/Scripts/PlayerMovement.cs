@@ -6,6 +6,7 @@ public class PlayerMovement : MonoBehaviour
 {
     public CharacterController controller;
     public float speed = 100f;
+    public AudioSource walk;
 
     public float jumpHeight = 3f;
 
@@ -16,6 +17,8 @@ public class PlayerMovement : MonoBehaviour
 
     public Transform groundCheck;
     public float groundDistance = 0.4f;
+    public Vector3 run;
+    public float runSpeed;
 
     public LayerMask groundMask;
 
@@ -27,12 +30,15 @@ public class PlayerMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
+
+
+
 
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
 
@@ -61,5 +67,24 @@ public class PlayerMovement : MonoBehaviour
         velocity.y += gravity * Time.deltaTime;
 
         controller.Move(velocity * Time.deltaTime);
+        run = move;
+        runSpeed = move.magnitude;
+
+        if (runSpeed >= .1f && walk.isPlaying == false)
+        {
+          walk.pitch = Random.Range(0.75f, 0.9f);
+          walk.volume = Random.Range(0.65f,0.8f);
+          // walk.time;
+
+          walk.Play();
+
+
+        }
+        // if (walk.isPlaying == true)
+        // {
+        //
+        //   walk.Stop();
+        // }
+
     }
 }

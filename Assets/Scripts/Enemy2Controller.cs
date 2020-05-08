@@ -22,20 +22,50 @@ public class Enemy2Controller : MonoBehaviour
 
     public NavMeshAgent agent;
 
+
+
+    public AudioSource walk;
+    public AudioSource hitPlayer;
+    // public AudioSource hitWood;
+    public AudioSource spawn;
+    public AudioSource death;
+    private int deathCounter = 0;
+    // private bool hurtPlayer;
+
     void Start(){
       target1 = GameObject.FindGameObjectWithTag("Player").transform;
+      spawn.Play();
     }
 
     void Update(){
+
+      if (myAnimationController.GetBool("Hit") == false && walk.isPlaying == false && deathCounter == 0)
+      {
+        walk.Play();
+        hitPlayer.Stop();
+        // hitWood.Stop();
+      }
+
+      if(myAnimationController.GetBool("Hit") == true
+        && deathCounter == 0 && hitPlayer.isPlaying == false)
+      {
+        walk.Stop();
+        hitPlayer.Play();
+      }
 
       if (target.isDead) {
         mainCollider.enabled = false;
         agent.enabled = false;
         mainRigidBody.detectCollisions = false;
-        deadTime++;
-        if (deadTime > 25) {
-          myAnimationController.enabled = false;
+        if(death.isPlaying == false && deathCounter == 0)
+        {
+          walk.Stop();
+          hitPlayer.Stop();
+          death.Play();
+          deathCounter++;
         }
+          myAnimationController.enabled = false;
+          Destroy(this.gameObject,2);
         return;
       }
 
