@@ -20,6 +20,8 @@ public class EntController : MonoBehaviour
     NavMeshAgent agent;    
     public Target selfTarget;
 
+    public GameObject healEffect;
+
     private float timeTillNextHit = 0f;
 
     void Start(){
@@ -54,7 +56,6 @@ public class EntController : MonoBehaviour
       //Robot Kyle comes out
       GameObject[] robots = GameObject.FindGameObjectsWithTag("Robot Kyle");
       if(robots.Length > 0){
-        myAnimationController.SetBool("Go", true);
         float closest = 100000f;
         foreach (GameObject robot in robots ) {
           if (robot.GetComponent<Target>().health <= 0) {
@@ -66,8 +67,9 @@ public class EntController : MonoBehaviour
             currentTargetRobot = robot;
           }
         }
-        if(closest >= 0.5f){
+        if(closest >= 1f){
           agent.SetDestination(currentTargetRobot.transform.position);
+          myAnimationController.SetBool("Go", true);
         }
       }
       else
@@ -91,6 +93,12 @@ public class EntController : MonoBehaviour
         myAnimationController.SetBool("Hit", true);
         collidedRobot = collision.gameObject;
         isHitting = true;
+      }
+      if (collision.gameObject.CompareTag("Avocado") || collision.gameObject.CompareTag("Burger")) {
+        gameObject.GetComponent<Target>().health += 25;
+        Debug.Log("hit by avocado");
+        healEffect.GetComponent<ParticleSystem>().Play();
+        Destroy(collision.gameObject);
       }
     }
     private void OnCollisionExit(Collision collision)
