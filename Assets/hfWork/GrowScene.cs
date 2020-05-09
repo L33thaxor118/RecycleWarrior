@@ -22,17 +22,18 @@ public class GrowScene : MonoBehaviour
     void Update()
     {   
        // Debug.Log(this.radius);
-        Vector3 treeLocation = new Vector3(player.transform.position.x,player.transform.position.y, 0);
-        Vector3 playerLocation = new Vector3(tree.transform.position.x,tree.transform.position.y, 0);
-        if(Vector3.Distance(treeLocation, playerLocation) >= this.radius) {
+        //Vector3 treeLocation = new Vector3(player.transform.position.x,player.transform.position.y, 0);
+        //Vector3 playerLocation = new Vector3(tree.transform.position.x,tree.transform.position.y, 0);
+        //if(Vector3.Distance(treeLocation, playerLocation) >= this.radius) {
            
            // Replace here with losing health function 
-        }
-        if(Input.GetKeyDown(KeyCode.E)) {
-            StartCoroutine(GrowBorder());
-        }
+           //player.GetComponent<PlayerHealth>().health -= 1;
+        //}
         
-        
+    }
+
+    public void Grow() {
+        StartCoroutine(GrowBorder());
     }
 
     IEnumerator GrowGrass() { 

@@ -862,6 +862,18 @@ PrefabInstance:
       propertyPath: health
       value: 50
       objectReference: {fileID: 0}
+    - target: {fileID: 7393235399144058329, guid: d3a6099431bc842fabea206f9f022da0,
+        type: 3}
+      propertyPath: trashDrop1
+      value: 
+      objectReference: {fileID: 9101919596703818089, guid: 63fd6ab5dc20b4436b8e29e3546f50d5,
+        type: 3}
+    - target: {fileID: 7393235399144058329, guid: d3a6099431bc842fabea206f9f022da0,
+        type: 3}
+      propertyPath: trashDrop2
+      value: 
+      objectReference: {fileID: 252147803083873686, guid: e47c51b38c0044ad28824fe22a7d79d0,
+        type: 3}
     - target: {fileID: 9196638861968184152, guid: d3a6099431bc842fabea206f9f022da0,
         type: 3}
       propertyPath: m_LocalPosition.x

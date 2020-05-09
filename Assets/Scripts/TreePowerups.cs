@@ -52,7 +52,7 @@ public class TreePowerups : MonoBehaviour
 
     private void OnTriggerEnter(Collider other) {
         if (other.gameObject.CompareTag("Avocado") || other.gameObject.CompareTag("Burger")) {
-            gameObject.GetComponent<Target>().health += 25;
+            gameObject.GetComponent<Target>().health += 30;
             regenFX.GetComponent<ParticleSystem>().Play();
             Destroy(other);
         }

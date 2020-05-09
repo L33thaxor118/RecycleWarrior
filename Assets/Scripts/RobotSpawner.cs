@@ -24,9 +24,8 @@ public class RobotSpawner : MonoBehaviour
   public GameObject stage3Robot2;
 
   private int stage1RobotsPerSpawn = 5;
-  private int stage2RobotsPerSpawn = 10;
-
-  private int stage3RobotsPerSpawn = 15;
+  private int stage2RobotsPerSpawn = 5;
+  private int stage3RobotsPerSpawn = 5;
 
 
 
@@ -45,56 +44,119 @@ public class RobotSpawner : MonoBehaviour
         pn = Random.Range(1,6);
         if(pn == 1)
         {
-          Instantiate(stage1Robot1, spawnPos1, Quaternion.identity);
+          int prob = Random.Range(1,4);
+          if (prob == 1) {
+            Instantiate(stage1Robot2, spawnPos1, Quaternion.identity);
+          } else {
+            Instantiate(stage1Robot1, spawnPos1, Quaternion.identity);
+          }
         }
         else if(pn == 2)
         {
-          Instantiate(stage1Robot1, spawnPos2, Quaternion.identity);
+          int prob = Random.Range(1,4);
+          if (prob == 1) {
+            Instantiate(stage1Robot2, spawnPos2, Quaternion.identity);
+          } else {
+            Instantiate(stage1Robot1, spawnPos2, Quaternion.identity);
+          }
         }
         else if(pn == 3)
         {
-          Instantiate(stage1Robot1, spawnPos3, Quaternion.identity);
+          int prob = Random.Range(1,4);
+          if (prob == 1) {
+            Instantiate(stage1Robot2, spawnPos3, Quaternion.identity);
+          } else {
+            Instantiate(stage1Robot1, spawnPos3, Quaternion.identity);
+          }
         }
         else if (pn == 4)
         {
-          Instantiate(stage1Robot1, spawnPos4, Quaternion.identity);
+          int prob = Random.Range(1,4);
+          if (prob == 1) {
+            Instantiate(stage1Robot2, spawnPos4, Quaternion.identity);
+          } else {
+            Instantiate(stage1Robot1, spawnPos4, Quaternion.identity);
+          }
         }
         else if (pn == 5)
         {
-          Instantiate(stage1Robot1, spawnPos5, Quaternion.identity);
+          int prob = Random.Range(1,4);
+          if (prob == 1) {
+            Instantiate(stage1Robot2, spawnPos5, Quaternion.identity);
+          } else {
+            Instantiate(stage1Robot1, spawnPos5, Quaternion.identity);
+          }
         } else 
         {
-          Instantiate(stage1Robot1, spawnPos6, Quaternion.identity);
+          int prob = Random.Range(1,4);
+          if (prob == 1) {
+            Instantiate(stage1Robot2, spawnPos6, Quaternion.identity);
+          } else {
+            Instantiate(stage1Robot1, spawnPos6, Quaternion.identity);
+          }
         }
       }
       return stage1RobotsPerSpawn;
     }
 
-    public void SpawnStage2() {
-      pn = Random.Range(1,6);
-      if(pn == 1)
-      {
-        Instantiate(stage2Robot1, spawnPos1, Quaternion.identity);
+    public int SpawnStage2() {
+      for (int i = 0; i < stage1RobotsPerSpawn; i++) {
+        pn = Random.Range(1,6);
+        if(pn == 1)
+        {
+          int prob = Random.Range(1,4);
+          if (prob == 1) {
+            Instantiate(stage2Robot2, spawnPos1, Quaternion.identity);
+          } else {
+            Instantiate(stage2Robot1, spawnPos1, Quaternion.identity);
+          }
+        }
+        else if(pn == 2)
+        {
+          int prob = Random.Range(1,4);
+          if (prob == 1) {
+            Instantiate(stage2Robot2, spawnPos2, Quaternion.identity);
+          } else {
+            Instantiate(stage2Robot1, spawnPos2, Quaternion.identity);
+          }
+        }
+        else if(pn == 3)
+        {
+          int prob = Random.Range(1,4);
+          if (prob == 1) {
+            Instantiate(stage2Robot2, spawnPos3, Quaternion.identity);
+          } else {
+            Instantiate(stage2Robot1, spawnPos3, Quaternion.identity);
+          }
+        }
+        else if (pn == 4)
+        {
+          int prob = Random.Range(1,4);
+          if (prob == 1) {
+            Instantiate(stage2Robot2, spawnPos4, Quaternion.identity);
+          } else {
+            Instantiate(stage2Robot1, spawnPos4, Quaternion.identity);
+          }
+        }
+        else if (pn == 5)
+        {
+          int prob = Random.Range(1,4);
+          if (prob == 1) {
+            Instantiate(stage2Robot2, spawnPos5, Quaternion.identity);
+          } else {
+            Instantiate(stage2Robot1, spawnPos5, Quaternion.identity);
+          }
+        } else 
+        {
+          int prob = Random.Range(1,4);
+          if (prob == 1) {
+            Instantiate(stage2Robot2, spawnPos6, Quaternion.identity);
+          } else {
+            Instantiate(stage2Robot1, spawnPos6, Quaternion.identity);
+          }
+        }
       }
-      else if(pn == 2)
-      {
-        Instantiate(stage2Robot1, spawnPos2, Quaternion.identity);
-      }
-      else if(pn == 3)
-      {
-        Instantiate(stage2Robot1, spawnPos3, Quaternion.identity);
-      }
-      else if(pn == 4)
-      {
-        Instantiate(stage2Robot1, spawnPos4, Quaternion.identity);
-      }
-      else if (pn == 5)
-      {
-        Instantiate(stage2Robot1, spawnPos5, Quaternion.identity);
-      } else 
-      {
-        Instantiate(stage2Robot1, spawnPos6, Quaternion.identity);
-      }
+      return stage2RobotsPerSpawn;
     }
 
     public void SpawnStage3() {

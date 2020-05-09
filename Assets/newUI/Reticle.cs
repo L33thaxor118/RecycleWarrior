@@ -24,7 +24,7 @@ public class Reticle : MonoBehaviour
     {
         //if (isMoving)
        // {
-        currentSize = Mathf.Lerp(restingSize, currentSize, Time.deltaTime * speed);
+        ///currentSize = Mathf.Lerp(restingSize, currentSize, Time.deltaTime * speed);
        // }
         // else
         // {
