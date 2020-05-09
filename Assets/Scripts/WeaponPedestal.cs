@@ -64,42 +64,42 @@ public class WeaponPedestal : MonoBehaviour
             currentPickup = "HeavyAmmo";
             StartCoroutine(MoveObject(heavyAmmo.transform, heavyAmmo.transform.position, new Vector3 (heavyAmmo.transform.position.x, 1.2f, heavyAmmo.transform.position.z), 3f));
             redBinCollector.itemCount -= 3;
-        } else if (blueBinCollector.specialItemCount >= 5) {
+        } else if (blueBinCollector.specialItemCount >= 3 && !occupied) {
             if (!rifle1Taken) {
                 occupied = true;
                 rifle1Taken = true;
                 currentPickup = "RifleUpgrade1";
                 StartCoroutine(MoveObject(rifle1.transform, rifle1.transform.position, new Vector3 (rifle1.transform.position.x, 1.2f, rifle1.transform.position.z), 3f));
-                blueBinCollector.specialItemCount -= 5;
+                blueBinCollector.specialItemCount -= 3;
             } else if (!rifle2Taken) {
                 occupied = true;
                 rifle2Taken = true;
                 currentPickup = "RifleUpgrade2";
                 StartCoroutine(MoveObject(rifle2.transform, rifle2.transform.position, new Vector3 (rifle2.transform.position.x, 1.2f, rifle2.transform.position.z), 3f));
-                blueBinCollector.specialItemCount -= 5;
+                blueBinCollector.specialItemCount -= 3;
             } 
-        } else if (redBinCollector.specialItemCount >= 5 && !occupied) {
+        } else if (redBinCollector.specialItemCount >= 3 && !occupied) {
             if (!sniper1Taken) {
                 occupied = true;
                 sniper1Taken = true;
                 currentPickup = "SniperUpgrade1";
                 StartCoroutine(MoveObject(sniper1.transform, sniper1.transform.position, new Vector3 (sniper1.transform.position.x, 1.2f, sniper1.transform.position.z), 3f));
-                redBinCollector.specialItemCount -= 5;
+                redBinCollector.specialItemCount -= 3;
             } else if (!sniper2Taken) {
                 occupied = true;
                 sniper2Taken = true;
                 currentPickup = "SniperUpgrade2";
                 StartCoroutine(MoveObject(sniper2.transform, sniper2.transform.position, new Vector3 (sniper2.transform.position.x, 1.2f, sniper2.transform.position.z), 3f));
-                redBinCollector.specialItemCount -= 5;
+                redBinCollector.specialItemCount -= 3;
             }
 
-        } else if (yellowBinCollector.specialItemCount >= 5 && !occupied) {
+        } else if (yellowBinCollector.specialItemCount >= 3 && !occupied) {
             if (!pistol2Taken) {
                 occupied = true;
                 pistol2Taken = true;
                 currentPickup = "PistolUpgrade2";
                 StartCoroutine(MoveObject(pistol2.transform, pistol2.transform.position, new Vector3 (pistol2.transform.position.x, 1.2f, pistol2.transform.position.z), 3f));
-                yellowBinCollector.specialItemCount -= 5;
+                yellowBinCollector.specialItemCount -= 3;
             }
         }
         
@@ -123,14 +123,14 @@ public class WeaponPedestal : MonoBehaviour
         switch(currentPickup) {
             case "LightAmmo":
             pickupSound.Play();
-            playerInventory.lightAmmo += 20;
+            playerInventory.lightAmmo += 50;
             lightAmmo.transform.position = startPosition.position;
             occupied = false;
             currentPickup = "";
             break;
             case "MediumAmmo":
             pickupSound.Play();
-            playerInventory.mediumAmmo += 50;
+            playerInventory.mediumAmmo += 200;
             medAmmo.transform.position = startPosition.position;
             occupied = false;
             currentPickup = "";

@@ -59,6 +59,9 @@ public class WeaponSwitch : MonoBehaviour
 
     public void addPistol2() {
         //weapons.Add(Pistol2);
+        if (currentIdx == 1) {
+            Destroy(weapons[1]);
+        }
         weapons[1] = Pistol2;
     }
 
@@ -67,6 +70,9 @@ public class WeaponSwitch : MonoBehaviour
     }
 
     public void addRifle2() {
+        if (currentIdx == 2) {
+            Destroy(weapons[2]);
+        }
         weapons[2] = Rifle2;
     }
 
@@ -75,6 +81,9 @@ public class WeaponSwitch : MonoBehaviour
     }
 
     public void addSniper2() {
+        if (currentIdx == 3) {
+            Destroy(weapons[3]);
+        }
         weapons[3] = Sniper2;
     }
 

@@ -1799,7 +1799,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18b10e535b35f432c9d5254a8aa4a718, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 500
+  health: 200
   trashDrop1: {fileID: 1895661130982968575, guid: 827c238b1038243cca3d31fa51d9bd74,
     type: 3}
   trashDrop2: {fileID: 1895661130982968575, guid: 827c238b1038243cca3d31fa51d9bd74,

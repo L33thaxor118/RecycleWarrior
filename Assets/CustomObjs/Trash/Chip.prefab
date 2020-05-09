@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 252147803083873686}
   m_LocalRotation: {x: -0, y: -0.96060103, z: -0, w: -0.27793115}
   m_LocalPosition: {x: 48.02444, y: 0.012697541, z: 39.67711}
-  m_LocalScale: {x: 10, y: 10, z: 10}
+  m_LocalScale: {x: 15, y: 15, z: 15}
   m_Children:
   - {fileID: 2670904334022709163}
   m_Father: {fileID: 0}
@@ -125,7 +125,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   test: 
-  timeToDestroy: 15
+  timeToDestroy: 100
 --- !u!1001 &480978138471142851
 PrefabInstance:
   m_ObjectHideFlags: 0

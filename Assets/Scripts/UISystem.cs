@@ -46,7 +46,7 @@ public class UISystem : MonoBehaviour
         int currentGunIdx = weaponSwitch.currentIdx;
         if (weaponSwitch.currentIdx != 0) {
             float spreadFactor = weaponSwitch.weapons[currentGunIdx].GetComponent<Gun>().spreadFactor;
-            crossHairs.currentSize = spreadFactor*1000;
+            crossHairs.currentSize = spreadFactor*1500;
             if (currentGunIdx == 1 || currentGunIdx == 2) {
                 bulletCount.text = inventory.lightAmmo.ToString();
             } else if (currentGunIdx == 3 || currentGunIdx == 4) {

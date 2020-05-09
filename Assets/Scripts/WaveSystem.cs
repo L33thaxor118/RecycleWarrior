@@ -48,9 +48,9 @@ public class WaveSystem : MonoBehaviour
         timeTillNextSpawn -= Time.deltaTime;
 
         if (timeTillNextSpawn <= 0 && (robotsSpawnedThisLevel < level*10) && !interim) {
-            if (!weapons.rifle1Taken) {
+            if (!weapons.pistol2Taken) {
                 robotsSpawnedThisLevel += spawner.SpawnStage1();
-            } else if (!weapons.sniper1Taken) {
+            } else if (!weapons.rifle2Taken) {
                 spawner.SpawnStage2();
             } else {
                 spawner.SpawnStage3();

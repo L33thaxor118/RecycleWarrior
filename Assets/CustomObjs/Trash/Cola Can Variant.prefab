@@ -43,7 +43,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   test: 
-  timeToDestroy: 15
+  timeToDestroy: 100
 --- !u!1001 &5016976804060203999
 PrefabInstance:
   m_ObjectHideFlags: 0
