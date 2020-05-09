@@ -52,7 +52,7 @@ public class EnemyController2 : MonoBehaviour
     if (timeTillNextHit > 0) {
         timeTillNextHit -= Time.deltaTime;
       }
-      if (isHitting) {
+      if (isHitting && !target.isDead) {
         if (collision.gameObject.CompareTag("Player") && timeTillNextHit <= 0) {
           collision.gameObject.GetComponent<PlayerHealth>().health -= 10;
           timeTillNextHit = hitDelay;

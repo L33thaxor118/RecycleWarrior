@@ -28,6 +28,9 @@ public class EnemyController : MonoBehaviour
     private bool isHitting = false;
 
     private GameObject collision;
+    public AudioSource death;
+
+    private bool deathPlayed = false;
 
     void Start(){
       timeTillNextHit = hitDelay;
@@ -42,7 +45,7 @@ public class EnemyController : MonoBehaviour
       if (timeTillNextHit > 0) {
         timeTillNextHit -= Time.deltaTime;
       }
-      if (isHitting) {
+      if (isHitting && !target.isDead) {
         if (collision.gameObject.CompareTag("Player") && timeTillNextHit <= 0) {
           collision.gameObject.GetComponent<PlayerHealth>().health -= 10;
           collision.gameObject.GetComponents<AudioSource>()[2].Play();
@@ -57,6 +60,10 @@ public class EnemyController : MonoBehaviour
       }
 
       if (target.isDead) {
+          if (!deathPlayed) {
+            deathPlayed = true;
+            death.Play();
+          }
         mainCollider.enabled = false;
         agent.enabled = false;
         mainRigidBody.detectCollisions = false;

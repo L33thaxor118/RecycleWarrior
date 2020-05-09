@@ -409,6 +409,7 @@ MonoBehaviour:
   hitPlayer: {fileID: 8508491832006001353}
   spawn: {fileID: 3089304212904779647}
   death: {fileID: 8412954878151166217}
+  hitDelay: 1
 --- !u!136 &8877243821290753993
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -433,7 +434,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 3.5
+  m_Speed: 5
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -458,9 +459,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 50
-  trashDrop1: {fileID: 6819158898031133121, guid: 277c96089f8d14a138814754e5896762,
+  trashDrop1: {fileID: 7094896593178191390, guid: 73dc4830938df4930922fad5d06fdf0d,
     type: 3}
-  trashDrop2: {fileID: 7094896593178191390, guid: 73dc4830938df4930922fad5d06fdf0d,
+  trashDrop2: {fileID: 6819158898031133121, guid: 277c96089f8d14a138814754e5896762,
+    type: 3}
+  trashDrop3: {fileID: 9101919596703818089, guid: 63fd6ab5dc20b4436b8e29e3546f50d5,
+    type: 3}
+  trashDrop4: {fileID: 4816125001982432924, guid: c160e2416f84a48948c77972c8d75828,
     type: 3}
   dropLocation: {fileID: 8877243820293126412}
   isDead: 0

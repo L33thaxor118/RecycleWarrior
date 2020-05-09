@@ -8,6 +8,10 @@ public class Target : MonoBehaviour {
 	public GameObject trashDrop1;
 	public GameObject trashDrop2;
 
+	public GameObject trashDrop3;
+
+	public GameObject trashDrop4;
+
 	public Transform dropLocation;
 
 	public bool isDead;
@@ -23,11 +27,13 @@ public class Target : MonoBehaviour {
 		// CHANGE BEHAVIOR BASED ON THIS OBJECTS TAG, FOR EXAMPLE, WE DONT WANT TO REDUCE TERRAIN HEALTH. OR WE MAY NOT WANT ENTs TO DROP ANYTHING.
 		void Death()
 		{
-			int random = Random.Range(1,10);
-			if (random <= 9) {
+			int random = Random.Range(1,5);
+			if (random == 1) {
 				Instantiate(trashDrop1, dropLocation.position, dropLocation.rotation);
 			} else {
-				Instantiate(trashDrop2, dropLocation.position, dropLocation.rotation);
+				Instantiate(trashDrop2, dropLocation.position + new Vector3(0.5f,1f,0.5f), dropLocation.rotation);
+				Instantiate(trashDrop3, dropLocation.position + new Vector3(-0.5f,1f,0.5f), dropLocation.rotation);
+				Instantiate(trashDrop4, dropLocation.position + new Vector3(0.5f,1f,-0.5f), dropLocation.rotation);
 			}
 			isDead = true;
 		}

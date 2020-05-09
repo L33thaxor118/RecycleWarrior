@@ -11,6 +11,14 @@ public class EntController : MonoBehaviour
   private GameObject collidedRobot;
 
   private bool isHitting = false;
+
+  public AudioSource walk;
+
+  public AudioSource death;
+
+  public AudioSource hit;
+
+  private bool deathPlayed = false;
   
   [SerializeField] private Animator myAnimationController;
     // public float lookRadius = f;
@@ -42,11 +50,16 @@ public class EntController : MonoBehaviour
       }
 
       if (isHitting && timeTillNextHit <= 0) {
+        hit.Play();
         collidedRobot.gameObject.GetComponent<Target>().takeDamage(40);
         timeTillNextHit = hitDelay;
       }
 
       if (selfTarget.health <= 0) {
+        if (!deathPlayed) {
+          death.Play();
+          deathPlayed = true;
+        }
         myAnimationController.SetBool("Death", true);
         Destroy(gameObject, 15);
         agent.isStopped = true;
@@ -68,6 +81,7 @@ public class EntController : MonoBehaviour
           }
         }
         if(closest >= 1f){
+          //.Play();
           agent.SetDestination(currentTargetRobot.transform.position);
           myAnimationController.SetBool("Go", true);
         }
@@ -93,6 +107,7 @@ public class EntController : MonoBehaviour
         myAnimationController.SetBool("Hit", true);
         collidedRobot = collision.gameObject;
         isHitting = true;
+        //walk.Stop();
       }
       if (collision.gameObject.CompareTag("Avocado") || collision.gameObject.CompareTag("Burger")) {
         gameObject.GetComponent<Target>().health += 25;

@@ -11,10 +11,12 @@ public class WaveSystem : MonoBehaviour
     public RobotSpawner spawner;
 
     public WeaponPedestal weapons;
+
+    private bool grown = false;
     
     private float timeTillNextSpawn;
 
-    public float spawnInterval = 10f;
+    public float spawnInterval = 15f;
 
     public float restTime = 30f;
     private float timeTillNextWave;
@@ -60,9 +62,10 @@ public class WaveSystem : MonoBehaviour
     void StartNewWave() {
         timeTillNextWave -= Time.deltaTime;
         interim = true;
-        if (level >= 1) {
+        if (level >= 1 && !grown) {
             growScene.Grow();
-        }
+            grown = true;
+         }
         //grow terrain;
         if (timeTillNextWave <= 0) {
             level++;
@@ -73,6 +76,7 @@ public class WaveSystem : MonoBehaviour
             robotsRemaining = level*10;
             robotsSpawnedThisLevel = 0;
             interim = false;
+            grown = false;
         }
     }
 }

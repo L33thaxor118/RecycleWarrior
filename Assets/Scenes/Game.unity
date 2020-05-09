@@ -3342,6 +3342,8 @@ MonoBehaviour:
   health: 1000
   trashDrop1: {fileID: 0}
   trashDrop2: {fileID: 0}
+  trashDrop3: {fileID: 0}
+  trashDrop4: {fileID: 0}
   dropLocation: {fileID: 0}
   isDead: 0
 --- !u!4 &709269786 stripped
@@ -3367,7 +3369,7 @@ MonoBehaviour:
     type: 3}
   Bomb: {fileID: 2887043083706894794, guid: 30fc6428e7129498da2cff214f5378c1, type: 3}
   Ent: {fileID: 1161149726777448586, guid: f244bb83f84f244158d893be6201ecb0, type: 3}
-  spawnInterval: 25
+  spawnInterval: 15
   SpawnLocation: {fileID: 1554876432}
   regenFX: {fileID: 813759083}
 --- !u!1 &720602261 stripped
@@ -4626,7 +4628,7 @@ MonoBehaviour:
   damage: 10
   range: 100
   force: 10
-  fireRate: 7
+  fireRate: 5
   userCamera: {fileID: 1474935088}
   muzzleEffect: {fileID: 1259905945}
   HitEffectMetal: {fileID: 100002, guid: 00fedc70b62a31e448e8ccc298257b56, type: 3}
@@ -6947,9 +6949,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   trashAmmo: 0000000000000000000000000000000000000000000000000000000000000000
-  lightAmmo: 100
+  lightAmmo: 50
   mediumAmmo: 100
-  heavyAmmo: 100
+  heavyAmmo: 10
   pickupFX: {fileID: 1153309273}
 --- !u!114 &1153309272
 MonoBehaviour:
@@ -7172,7 +7174,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afebe786cc6994c8fb8e3be3fe43b7c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
+  health: 150
 --- !u!82 &1153309276
 AudioSource:
   m_ObjectHideFlags: 0
@@ -13543,7 +13545,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4279449019447086, guid: eded051879df4c147b9010199d240258, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.54
       objectReference: {fileID: 0}
     - target: {fileID: 4279449019447086, guid: eded051879df4c147b9010199d240258, type: 3}
       propertyPath: m_LocalPosition.z
@@ -13819,7 +13821,7 @@ PrefabInstance:
     - target: {fileID: 6296436107375729484, guid: d26a08c15469e4a84a5d0e7acde939a3,
         type: 3}
       propertyPath: m_RootOrder
-      value: 16
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 6296436107375729484, guid: d26a08c15469e4a84a5d0e7acde939a3,
         type: 3}
@@ -14083,7 +14085,7 @@ RectTransform:
   m_Children:
   - {fileID: 1772447096}
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}

@@ -29,11 +29,11 @@ public class WeaponSwitch : MonoBehaviour
         Sniper2.SetActive(false);
         weapons.Add(Tool);
         weapons.Add(Pistol1);
-        weapons.Add(Pistol2);
-        weapons.Add(Rifle1);
-        weapons.Add(Rifle2);
-        weapons.Add(Sniper1);
-        weapons.Add(Sniper2);
+        // weapons.Add(Pistol2);
+        // weapons.Add(Rifle1);
+        // weapons.Add(Rifle2);
+        // weapons.Add(Sniper1);
+        // weapons.Add(Sniper2);
 
         currentIdx = 0;
         weapons[currentIdx].SetActive(true);

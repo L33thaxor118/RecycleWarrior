@@ -117,40 +117,65 @@ public class WeaponPedestal : MonoBehaviour
     }
 
     void OnTriggerEnter(Collider other) {
-        pickupSound.Play();
-        occupied = false;
+        if (!other.gameObject.CompareTag("Player")) {
+            return;
+        }
         switch(currentPickup) {
             case "LightAmmo":
+            pickupSound.Play();
             playerInventory.lightAmmo += 20;
             lightAmmo.transform.position = startPosition.position;
+            occupied = false;
+            currentPickup = "";
             break;
             case "MediumAmmo":
-            playerInventory.mediumAmmo += 20;
+            pickupSound.Play();
+            playerInventory.mediumAmmo += 50;
             medAmmo.transform.position = startPosition.position;
+            occupied = false;
+            currentPickup = "";
             break;
             case "HeavyAmmo":
-            playerInventory.heavyAmmo += 20;  
+            pickupSound.Play();
+            playerInventory.heavyAmmo += 10;  
             heavyAmmo.transform.position = startPosition.position;
+            occupied = false;
+            currentPickup = "";
             break;
             case "PistolUpgrade2":
+            pickupSound.Play();
             other.gameObject.GetComponent<WeaponSwitch>().addPistol2();
             pistol2.transform.position = startPosition.position;
+            occupied = false;
+            currentPickup = "";
             break;
             case "RifleUpgrade1":
+            pickupSound.Play();
             other.gameObject.GetComponent<WeaponSwitch>().addRifle1();
             rifle1.transform.position = startPosition.position;
+            occupied = false;
+            currentPickup = "";
             break;
             case "RifleUpgrade2":
+            pickupSound.Play();
             other.gameObject.GetComponent<WeaponSwitch>().addRifle2();
             rifle2.transform.position = startPosition.position;
+            occupied = false;
+            currentPickup = "";
             break;
             case "SniperUpgrade1":
+            pickupSound.Play();
             other.gameObject.GetComponent<WeaponSwitch>().addSniper1();
             sniper1.transform.position = startPosition.position;
+            occupied = false;
+            currentPickup = "";
             break;
             case "SniperUpgrade2":
+            pickupSound.Play();
             other.gameObject.GetComponent<WeaponSwitch>().addSniper2();
             sniper2.transform.position = startPosition.position;
+            occupied = false;
+            currentPickup = "";
             break;
         }
     }

@@ -52,7 +52,7 @@ public class Powerups : MonoBehaviour
         if (collision.gameObject.tag == "ApplePowerup") {
             Destroy(collision.gameObject);  
             pickupFX.Play();
-            //regenerate health
+            gameObject.GetComponent<PlayerHealth>().health += 50;
         } else if (collision.gameObject.tag == "BananaPowerup") {
             Destroy(collision.gameObject);
             pickupFX.Play();
