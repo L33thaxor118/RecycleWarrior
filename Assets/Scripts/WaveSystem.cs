@@ -51,9 +51,9 @@ public class WaveSystem : MonoBehaviour
             if (!weapons.pistol2Taken) {
                 robotsSpawnedThisLevel += spawner.SpawnStage1();
             } else if (!weapons.rifle2Taken) {
-                spawner.SpawnStage2();
+                robotsSpawnedThisLevel += spawner.SpawnStage2();
             } else {
-                spawner.SpawnStage3();
+                robotsSpawnedThisLevel += spawner.SpawnStage3();
             }
             timeTillNextSpawn = spawnInterval;
         }

@@ -5,6 +5,8 @@ using UnityEngine;
 public class EntSpawner : MonoBehaviour
 {
   public GameObject spawnee;
+
+  private bool spawned = false;
   public float pn;
     // Start is called before the first frame update
     // void Start()
@@ -20,7 +22,10 @@ public class EntSpawner : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-      Instantiate(spawnee, gameObject.transform.position, gameObject.transform.rotation);
-      Destroy(gameObject);
+      if (!spawned) {
+        Instantiate(spawnee, gameObject.transform.position, gameObject.transform.rotation);
+        Destroy(gameObject);  
+        spawned = true;
+      }
     }
 }
